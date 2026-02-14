@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { Waves, CircleQuestionMark, MapPin, Scan, LocateFixed } from 'lucide-react';
 import { Button } from '@/src/react-app/components/Button';

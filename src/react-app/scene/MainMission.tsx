@@ -60,6 +60,7 @@ export const MainMission = ({ setProgress, onChangeScene }: MissionProps) => {
       <ModelViewer src={CATFISH_3D_MODEL} cover={CATFISH_3D_MODEL_COVER} />
 
       <div className="flex-1 flex items-center justify-center">
+        {/* @ts-ignore */}
         <iframe width="100%" height="100%" title="Catfish" frameBorder="0" allowFullScreen mozAllowFullScreen="true" webkitAllowFullScreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/aabbbe35942b49f488834624133abb56/embed"> </iframe>
       </div>
 

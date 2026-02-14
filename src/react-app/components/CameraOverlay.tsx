@@ -2,7 +2,7 @@ import React from 'react';
 
 interface CameraOverlayProps {
   cameraActive: boolean;
-  videoRef: React.RefObject<HTMLVideoElement>;
+  videoRef: React.RefObject<HTMLVideoElement | null>;
   cameraStream: MediaStream | null;
   setCameraStream: (stream: MediaStream | null) => void;
   setCameraActive: (active: boolean) => void;

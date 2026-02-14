@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import {
-  History, 
-  Map as MapIcon,
-  X,
-} from 'lucide-react';
+import { History, X } from 'lucide-react';
 import { Button } from '../components/Button';
 import { DialogBox } from '../components/DialogBox';
 import { ModelViewer } from '../components/ModelViewer';

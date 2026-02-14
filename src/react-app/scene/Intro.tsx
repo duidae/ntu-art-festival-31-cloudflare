@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
-import { 
-  ArrowRight, 
-  Map as MapIcon,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/src/react-app/components/Button';
 import { ART_FESTIVAL_APP_NAME } from '@/src/react-app/constants';
 

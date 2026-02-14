@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { 
-  Headphones, 
+import {
+  Headphones,
   CheckCircle2,
-  Map as MapIcon,
-  Mic, 
+  Mic,
   Share2,
 } from 'lucide-react';
 import { Button } from '@/src/react-app/components/Button';

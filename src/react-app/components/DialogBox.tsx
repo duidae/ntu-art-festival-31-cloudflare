@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  Volume2, 
-  Droplets, 
-  Sparkles, 
-  Map as MapIcon,
-  Fish, 
+  Volume2,
+  Droplets,
+  Sparkles,
+  Fish,
 } from 'lucide-react';
 
 interface DialogBoxProps {

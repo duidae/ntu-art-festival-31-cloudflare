@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import {
-  Map as MapIcon,
-  X,
-} from 'lucide-react';
+import { X } from 'lucide-react';
 import { Button } from './components/Button';
 import { DialogBox } from './components/DialogBox';
 import { SCENES } from '@/src/react-app/constants/enum';

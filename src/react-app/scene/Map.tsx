@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
+import { Feature } from "geojson";
 import { Waves, CircleQuestionMark, MapPin, Scan, LocateFixed } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
 import { CameraOverlay } from '@/react-app/components/CameraOverlay';
@@ -219,7 +220,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       .then(res => res.json())
       .then(data => {
         const geoLayer = L.geoJSON(data, {
-          filter: f => f.geometry?.type !== "Point"
+          filter: (f: Feature) => f.geometry?.type !== "Point"
         }).addTo(map);
         L.control.layers(null, {
           '💧1932台北舊水路': geoLayer

@@ -34,6 +34,7 @@ export const ModelViewer = (props: {src: string; cover: string}) => {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
+      {/* @ts-ignore */}
       <model-viewer
         style={{width: "100%", height: "100%"}}
         id="first"
@@ -55,6 +56,7 @@ export const ModelViewer = (props: {src: string; cover: string}) => {
         <div className="w-full h-full flex flex-col items-center justify-center" slot="poster">
           <img src={cover} />
         </div>
+      {/* @ts-ignore */}
       </model-viewer>
     </div>
   )

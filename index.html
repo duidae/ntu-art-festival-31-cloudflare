@@ -1,14 +1,114 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite + React + TS</title>
-	</head>
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!--
+    <title>圳下之聲 Voices from the Underground</title>
+    -->
+    <title>分解者 DECOmposer</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+      /* Custom Font Overrides for the specific aesthetic */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .font-serif {
+        font-family: 'Noto Serif TC', serif;
+      }
+      .font-mono {
+        font-family: 'Space Mono', monospace;
+      }
+      
+      /* Custom Animations */
+      @keyframes slide-up {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+      }
 
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/react-app/main.tsx"></script>
-	</body>
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.3; }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 4s infinite ease-in-out;
+      }
+
+      @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
+      }
+
+      /* Checkbox indicator logic */
+      input:checked + .check-indicator {
+        opacity: 1;
+      }
+
+      /* Brutalist Leaflet Overrides */
+      .leaflet-container {
+        background: #e8e8e6 !important;
+        filter: grayscale(1) contrast(1.1) brightness(1.05);
+      }
+      .leaflet-bar {
+        border: 2px solid #18181b !important;
+        box-shadow: 4px 4px 0px 0px #18181b !important;
+        border-radius: 0 !important;
+      }
+      .leaflet-bar a {
+        background-color: #fff !important;
+        border-bottom: 2px solid #18181b !important;
+        color: #18181b !important;
+        border-radius: 0 !important;
+      }
+      .leaflet-popup-content-wrapper {
+        border-radius: 0 !important;
+        border: 2px solid #18181b !important;
+        box-shadow: 4px 4px 0px 0px #4dff88 !important;
+        padding: 0 !important;
+      }
+      .leaflet-popup-tip-container {
+        display: none;
+      }
+      .leaflet-control-attribution {
+        font-family: 'Space Mono', monospace !important;
+        font-size: 8px !important;
+        background: rgba(255,255,255,0.8) !important;
+        border-left: 1px solid #18181b !important;
+        border-top: 1px solid #18181b !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.561.0",
+    "react": "https://aistudiocdn.com//react@^19.2.3",
+    "react/": "https://aistudiocdn.com/react@^19.2.3/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.3/",
+    "leaflet": "https://aistudiocdn.com/leaflet@^1.9.4"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/react-app/main.tsx"></script>
+  </body>
 </html>

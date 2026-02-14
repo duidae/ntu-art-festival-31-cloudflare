@@ -14,7 +14,13 @@
 	"dependencies": {
 		"hono": "4.11.1",
 		"react": "19.2.1",
-		"react-dom": "19.2.1"
+		"react-dom": "19.2.1",
+		"@google/model-viewer": "^4.1.0",
+		"@img-comparison-slider/react": "^8.0.2",
+		"@tailwindcss/vite": "^4.1.18",
+		"leaflet": "^1.9.4",
+		"lucide-react": "^0.562.0",
+		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "1.15.3",
@@ -40,7 +46,7 @@
 		"deploy": "wrangler deploy",
 		"dev": "vite",
 		"lint": "eslint .",
-		"preview": "npm run build && vite preview"
+		"preview": "vite preview"
 	},
 	"type": "module"
 }

@@ -1,66 +1,53 @@
-// src/App.tsx
+import { useState } from 'react';
+import { SCENES } from '@/src/react-app/constants/enum';
+import { ART_FESTIVAL_APP_NAME } from '@/src/react-app/constants';
+import { Intro, MissionMap, MainMission, SubMission, Final } from '@/src/react-app/scene';
 
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
-import honoLogo from "./assets/hono.svg";
-import "./App.css";
+/**
+ * 圳下之聲：瑠公圳的隱地下生態 (Voices from the Underground)
+ * Style: DECOmposer (Art Festival / Brutalist / Deconstruction)
+ * Palette: Light Gray Noise, Neon Green (#4dff88), Black
+ */
 
-function App() {
-	const [count, setCount] = useState(0);
-	const [name, setName] = useState("unknown");
+export default function App() {
+  const [currentScene, setCurrentScene] = useState<{scene: SCENES, story: string}>({scene: SCENES.INTRO, story: ""});
+  const [progress, setProgress] = useState({ m1: false, m2: false, m3: false, b1: false, b2: false, b3: false });
 
-	return (
-		<>
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
-					<img
-						src={cloudflareLogo}
-						className="logo cloudflare"
-						alt="Cloudflare logo"
-					/>
-				</a>
-			</div>
-			<h1>Vite + React + Hono + Cloudflare</h1>
-			<div className="card">
-				<button
-					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
-				>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<div className="card">
-				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
-				>
-					Name from API is: {name}
-				</button>
-				<p>
-					Edit <code>worker/index.ts</code> to change the name
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the logos to learn more</p>
-		</>
-	);
+  const backToMap = () => {
+    setCurrentScene({scene: SCENES.MAP, story: ""});
+  };
+
+  const headerJSX = (
+    <div className="h-10 border-b-2 border-zinc-900 flex justify-between items-center px-4 bg-white z-50 relative shrink-0">
+      <span className="font-mono font-bold text-xs tracking-widest" dangerouslySetInnerHTML={{ __html: ART_FESTIVAL_APP_NAME }}></span>
+      <div className="flex items-center gap-2">
+        <div className="w-2 h-2 rounded-full bg-[#4dff88] animate-pulse border border-zinc-900"></div>
+        <span className="font-mono text-xs font-bold">訊號連線中</span>
+      </div>
+    </div>
+  );
+
+  const noiseOverlayJSX = (
+    <div className="absolute inset-0 opacity-[0.08] pointer-events-none z-0 mix-blend-multiply" 
+      style={{ 
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")` 
+      }}
+    />
+  );
+
+  return (
+    <div className="min-h-screen bg-[#dcdcdc] flex items-center justify-center p-0 md:p-8 font-sans text-zinc-900">
+      <div className="w-full max-w-md h-[100dvh] md:h-[800px] bg-[#f4f4f5] md:border-4 border-zinc-900 shadow-2xl overflow-hidden relative flex flex-col">
+        {noiseOverlayJSX}
+        {headerJSX}
+        <div className="flex-1 relative overflow-auto">
+          {currentScene.scene === SCENES.INTRO && <Intro onChangeScene={backToMap} />}
+          {currentScene.scene === SCENES.MAP && <MissionMap setScene={setCurrentScene} progress={progress} />}
+          {currentScene.scene === SCENES.MAIN_MISSION && <MainMission setProgress={setProgress} onChangeScene={backToMap} />}
+          {(currentScene.scene === SCENES.SUB_MISSION || currentScene.scene === SCENES.OTHER_MISSION) && <SubMission storyPath={currentScene.story} onChangeScene={backToMap} />}
+          {currentScene.scene === SCENES.FINALE && <Final onChangeScene={backToMap} />}
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default App;

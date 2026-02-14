@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import L from 'leaflet';
+import L, { CircleMarker } from 'leaflet';
 import { Feature } from "geojson";
 import { Waves, CircleQuestionMark, MapPin, Scan, LocateFixed } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
@@ -31,7 +31,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const userMarkerRef = useRef<L.Marker | null>(null);
-  const userCircleRef = useRef<L.Circle | null>(null);
+  const userCircleRef = useRef<CircleMarker | null>(null);
   const watchIdRef = useRef<number | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -222,7 +222,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         const geoLayer = L.geoJSON(data, {
           filter: (f: Feature) => f.geometry?.type !== "Point"
         }).addTo(map);
-        L.control.layers(null, {
+        L.control.layers({}, {
           '💧1932台北舊水路': geoLayer
         }, {
           collapsed: false
@@ -232,7 +232,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   const addMarkers = (map: L.Map) => {
-    const currentPosition = position ? [position.lat, position.lon] : ART_FESTIVAL_CENTER;
+    const currentPosition: [number, number] = position ? [position.lat, position.lon] : ART_FESTIVAL_CENTER;
     const marker = L.marker(currentPosition, { 
       icon: L.divIcon({
         className: 'user-icon',

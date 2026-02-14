@@ -11,8 +11,8 @@ export default defineConfig({
     cloudflare(),
   ],
 	resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '.'),
-      }
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
     }
+  }
 });

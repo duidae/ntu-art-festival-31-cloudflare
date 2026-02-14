@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/src/react-app/components/Button';
-import { ART_FESTIVAL_APP_NAME } from '@/src/react-app/constants';
+import { Button } from '@/react-app/components/Button';
+import { ART_FESTIVAL_APP_NAME } from '@/react-app/constants';
 
 interface IntroSceneProps {
   onChangeScene: () => void;

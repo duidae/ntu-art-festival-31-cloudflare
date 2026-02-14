@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { SCENES } from '@/src/react-app/constants/enum';
-import { ART_FESTIVAL_APP_NAME } from '@/src/react-app/constants';
-import { Intro, MissionMap, MainMission, SubMission, Final } from '@/src/react-app/scene';
+import { SCENES } from '@/react-app/constants/enum';
+import { ART_FESTIVAL_APP_NAME } from '@/react-app/constants';
+import { Intro, MissionMap, MainMission, SubMission, Final } from '@/react-app/scene';
 
 /**
  * 圳下之聲：瑠公圳的隱地下生態 (Voices from the Underground)

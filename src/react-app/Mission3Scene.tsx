@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { X, Fish } from 'lucide-react';
 import { Button } from './components/Button';
 import { DialogBox } from './components/DialogBox';
-import { SCENES } from '@/src/react-app/constants/enum';
+import { SCENES } from '@/react-app/constants/enum';
 
 interface SceneProps {
   setScene: (scene: SCENES) => void;

@@ -3,7 +3,7 @@ import { History, X } from 'lucide-react';
 import { Button } from '../components/Button';
 import { DialogBox } from '../components/DialogBox';
 import { ModelViewer } from '../components/ModelViewer';
-import { CATFISH_3D_MODEL, CATFISH_3D_MODEL_COVER } from '@/src/react-app/constants'
+import { CATFISH_3D_MODEL, CATFISH_3D_MODEL_COVER } from '@/react-app/constants'
 
 interface SceneProps {
   onChangeScene: () => void;

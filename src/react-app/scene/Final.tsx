@@ -5,9 +5,13 @@ import {
   Mic,
   Share2,
 } from 'lucide-react';
-import { Button } from '@/src/react-app/components/Button';
+import { Button } from '@/react-app/components/Button';
 
-export const Final = () => {
+interface FinalSceneProps {
+  onChangeScene: () => void;
+}
+
+export const Final = ({ onChangeScene }: FinalSceneProps) => {
   const [pledged, setPledged] = useState(false);
   const [recorded, setRecorded] = useState(false);
   const [recording, setRecording] = useState(false);
@@ -101,7 +105,7 @@ export const Final = () => {
       <Button 
         variant="primary" 
         className="w-full shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 hover:shadow-none transition-all"
-        onClick={() => setPledged(true)}
+        onClick={() => {setPledged(true); onChangeScene();}}
         disabled={!recorded}
       >
         完成調查

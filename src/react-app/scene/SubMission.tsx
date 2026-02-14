@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { Button } from '@/src/react-app/components/Button';
+import { Button } from '@/react-app/components/Button';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
-import { SanitizeHref } from '@/src/react-app/utils';
+import { SanitizeHref } from '@/react-app/utils';
 
 interface SubMissionProps {
   storyPath: string;

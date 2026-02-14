@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { Waves, CircleQuestionMark, MapPin, Scan, LocateFixed } from 'lucide-react';
-import { Button } from '@/src/react-app/components/Button';
-import { CameraOverlay } from '@/src/react-app/components/CameraOverlay';
-import { SCENES } from '@/src/react-app/constants/enum';
+import { Button } from '@/react-app/components/Button';
+import { CameraOverlay } from '@/react-app/components/CameraOverlay';
+import { SCENES } from '@/react-app/constants/enum';
 import {
   ART_FESTIVAL_CENTER,
   MISSIONS,
@@ -12,8 +12,8 @@ import {
   ART_FESTIVAL_START_DATE,
   ART_FESTIVAL_END_DATE,
   ART_FESTIVAL_LOGO,
-} from '@/src/react-app/constants';
-import { FormatDateYYYYMMDD, FormatLatLon } from '@/src/react-app/utils';
+} from '@/react-app/constants';
+import { FormatDateYYYYMMDD, FormatLatLon } from '@/react-app/utils';
 
 interface MapProps {
   setScene: (targetScene: {scene: SCENES, story: string}) => void;

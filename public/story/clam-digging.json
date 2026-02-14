@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "title": "在台大摸蜆仔",
+  "contents": [{
+    "type": "image-compare",
+    "before": "/submission/clam-digging-before.webp",
+    "after": "/submission/clam-digging-after.webp",
+    "ref": "https://historygallery.ntu.edu.tw/%E5%AF%8C%E7%94%B0%E6%9C%9B%E6%B0%B4/incampus.html"
+  }, {
+    "type": "paragraph",
+    "text": "水溝旁的柱子屹立不搖了60個年頭，見證了台大校園的變遷。水溝仍是可見的遺跡，但蜆仔已成為縉紳化的歷史。"
+  }]
+}

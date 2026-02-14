@@ -1,0 +1,17 @@
+{
+  "id": "1",
+  "title": "師範大學誠溪",
+  "contents": [{
+    "type": "image-compare",
+    "before": "/submission/NTNU-comparison-before.jpg",
+    "after": "/submission/NTNU-comparison-after.jpg",
+    "ref": "http://history.lib.ntnu.edu.tw/wp/%E8%AA%A0%E6%BA%AA/"
+  }, {
+    "type": "paragraph",
+    "text": "不得不說以前真的美很多，還可以在溪邊畫畫(彩雲飛 - 1973)。🎨"
+  }, {
+    "type": "video",
+    "url": "/submission/NTNU-painting.mp4",
+    "ref": "https://zh.wikipedia.org/zh-tw/%E5%BD%A9%E9%9B%B2%E9%A3%9B"
+  }]
+}

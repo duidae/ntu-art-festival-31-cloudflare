@@ -1,0 +1,14 @@
+{
+  "id": "1",
+  "title": "若顯示位置權限已被拒絕，請開啟瀏覽器位置權限",
+  "contents": [{
+    "type": "paragraph",
+    "text": "使用本APP需要開啟位置權限，請依照以下步驟開啟手機內瀏覽器位置權限(勾選允許)："
+  }, {
+    "type": "image",
+    "url": "/submission/permission-1.webp"
+  }, {
+    "type": "image",
+    "url": "/submission/permission-2.webp"
+  }]
+}

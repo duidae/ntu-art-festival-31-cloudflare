@@ -61,7 +61,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
             </div>
 
             <Button onClick={() => onChangeScene()} className="w-full cursor-pointer" variant="primary">
-              開始分解 <ArrowRight size={16} />
+              開始分解... <ArrowRight size={16} />
             </Button>
           </div>
         )}

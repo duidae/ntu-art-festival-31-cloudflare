@@ -1,10 +1,8 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ART_FESTIVAL_APP_NAME } from '@/react-app/constants';
 
-export const TreasureHunt = () => {
-  const { siteId } = useParams<{ siteId: string }>();
+export const NotFound = () => {
   const navigate = useNavigate();
-  const displaySiteId = siteId ? `site-${siteId}` : 'unknown';
 
   const handleBackToHome = () => {
     navigate('/');
@@ -39,10 +37,10 @@ export const TreasureHunt = () => {
         {noiseOverlayJSX}
         {headerJSX}
         <div className="flex-1 relative overflow-auto flex flex-col items-center justify-center p-6">
-          <h1 className="text-2xl font-bold mb-4">寶藏獵人</h1>
-          <p className="text-center mb-6">Site ID: <span className="font-mono font-bold">{displaySiteId}</span></p>
+          <h1 className="text-5xl font-bold mb-4">404</h1>
+          <p className="text-center mb-6 text-lg">在分解的路途中迷失了嗎</p>
           <div className="text-center text-sm text-gray-600 mb-8">
-            <p>探索並發現此地點的故事和線索。</p>
+            <p>您所尋找的頁面不存在。</p>
           </div>
           <button
             onClick={handleBackToHome}
@@ -56,4 +54,4 @@ export const TreasureHunt = () => {
   );
 };
 
-export default TreasureHunt;
+export default NotFound;

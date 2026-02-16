@@ -1,0 +1,22 @@
+import { ReactNode } from 'react';
+import { Header } from '@/react-app/components/Header';
+import { NoiseOverlay } from '@/react-app/components/NoiseOverlay';
+
+interface AppLayoutProps {
+  children: ReactNode;
+  onLogoClick?: () => void;
+}
+
+export const AppLayout = ({ children, onLogoClick }: AppLayoutProps) => {
+  return (
+    <div className="min-h-screen bg-[#dcdcdc] flex items-center justify-center p-0 md:p-8 font-sans text-zinc-900">
+      <div className="w-full max-w-md h-[100dvh] md:h-[800px] bg-[#f4f4f5] md:border-4 border-zinc-900 shadow-2xl overflow-hidden relative flex flex-col">
+        <NoiseOverlay />
+        <Header onLogoClick={onLogoClick} />
+        <div className="flex-1 relative overflow-auto">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};

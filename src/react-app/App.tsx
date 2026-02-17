@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { SCENES } from '@/react-app/constants/enum';
 import { Intro, MissionMap, MainMission, SubMission, Final } from '@/react-app/scene';
 import { AppLayout } from '@/react-app/components/AppLayout';
@@ -10,7 +11,10 @@ import { AppLayout } from '@/react-app/components/AppLayout';
  */
 
 export default function App() {
-  const [currentScene, setCurrentScene] = useState<{scene: SCENES, story: string}>({scene: SCENES.INTRO, story: ""});
+  const [searchParams] = useSearchParams();
+  const noIntro = searchParams.get('noIntro') === 'true';
+  
+  const [currentScene, setCurrentScene] = useState<{scene: SCENES, story: string}>({scene: noIntro ? SCENES.MAP : SCENES.INTRO, story: ""});
   const [progress, setProgress] = useState({ m1: false, m2: false, m3: false, b1: false, b2: false, b3: false });
 
   const backToMap = () => {

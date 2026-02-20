@@ -318,7 +318,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   const mapToolbarJSX = (
-    <div className="absolute bottom-8 left-4 right-4 h-16 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[1000]">
+    <div className="absolute bottom-8 left-4 right-4 h-16 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
       <button className="flex flex-col items-center gap-1 text-zinc-900 group">
         <div className="bg-[#4dff88] p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
           <MapPin size={18} />
@@ -345,7 +345,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     <div className="h-full bg-[#e8e8e6] relative overflow-hidden flex flex-col">
       <div ref={mapContainerRef} className="flex-1 z-0 grayscale contrast-125" style={{ minHeight: 480 }} />
       
-      <div className="absolute top-3 left-4 z-[1000] flex items-center gap-2">
+      <div className="absolute top-3 left-4 z-[100] flex items-center gap-2">
         <div className="flex flex-row align-center gap-1 bg-zinc-900 text-white p-2 border-2 border-[#4dff88] font-mono text-[10px]">
           {position ? FormatLatLon(position.lat, position.lon) : geoError || '定位中...'}
           {geoError && <button className="cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}><CircleQuestionMark size={14}/></button>}

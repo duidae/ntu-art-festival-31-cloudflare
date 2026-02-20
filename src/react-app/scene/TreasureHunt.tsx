@@ -1,11 +1,21 @@
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
+import { useAuth } from "@/react-app/AuthContext";
 
 export const TreasureHunt = () => {
+  const user = useAuth();
   const { siteId } = useParams<{ siteId: string }>();
   const navigate = useNavigate();
   const displaySiteId = siteId ? `site-${siteId}` : 'unknown';
+
+  useEffect(() => {
+    console.log("Current user:", user);
+    if (!user) {
+      navigate("/Login");
+    }
+  }, [user]);
 
   const handleBackToMap = () => {
     navigate(MAP_ROUTE_PATH);

@@ -1,6 +1,6 @@
 {
-	"name": "ntu-art-festival-31-cloudflare",
-	"description": "A template for building a React application with Vite, Hono, and Cloudflare Workers",
+	"name": "城市幽靈-city-ghosts",
+	"description": "A project for NTU Art Festival & advocating fresh water fish issue in city, built with Cloudflare Workers and React.",
 	"cloudflare": {
 		"label": "Vite React Template",
 		"products": [
@@ -42,7 +42,7 @@
 		"vite": "^6.0.0",
 		"wrangler": "4.56.0"
 	},
-	"private": true,
+	"private": false,
 	"scripts": {
 		"build": "tsc -b && vite build",
 		"cf-typegen": "wrangler types",

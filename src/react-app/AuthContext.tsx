@@ -1,9 +1,10 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { getAuth, getRedirectResult, onAuthStateChanged, User, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, User, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
+  login: () => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -17,14 +18,26 @@ export const AuthProvider = ({ children }: {
 
   useEffect(() => {
     const auth = getAuth();
-    getRedirectResult(auth).catch(console.error);
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setIsLoading(false);
     });
-
     return unsubscribe;
   }, []);
+
+  const login = async () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    try {
+      setIsLoading(true);
+      await signInWithPopup(auth, provider);
+    } catch (err) {
+      console.error("login error:", err);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const logout = async () => {
     const auth = getAuth();
@@ -34,6 +47,7 @@ export const AuthProvider = ({ children }: {
   const value: AuthContextType = {
     user,
     isLoading,
+    login,
     logout,
   };
 

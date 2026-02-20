@@ -11,7 +11,7 @@ interface AppLayoutProps {
 }
 
 export const AppLayout = ({ children, onLogoClick }: AppLayoutProps) => {
-  const { user, logout } = useAuth();
+  const { user, login, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -27,6 +27,7 @@ export const AppLayout = ({ children, onLogoClick }: AppLayoutProps) => {
           user={user}
           onLogoClick={onLogoClick}
           onLogoutClick={handleLogout}
+          onLoginClick={login}
         />
         <div className="flex-1 relative overflow-auto">
           {children}

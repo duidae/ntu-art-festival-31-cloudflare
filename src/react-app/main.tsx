@@ -1,28 +1,38 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { initializeApp } from "firebase/app";
+import { getAnalytics, logEvent } from "firebase/analytics";
+import { AuthProvider } from "./AuthContext";
+import { ART_FESTIVAL_TREASURE_HUNT_PATHS } from "./constants";
 import App from "./App.tsx";
 import { Login, TreasureHunt, NotFound } from "./scene";
-import { AuthProvider } from "./AuthContext";
 import "./index.css";
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+const AnalyticsListener = () => {
+  const location = useLocation();
+  const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  };
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  useEffect(() => {
+    const analytics = getAnalytics(initializeApp(firebaseConfig));
+
+    logEvent(analytics, "page_view", {
+      page_path: location.pathname,
+      page_title: document.title,
+      page_location: window.location.href,
+    });
+  }, [location]);
+
+  return null;
 };
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-const TreasureHuntPaths = ['kzqpt9', 'mrvxa7'].map(siteId => `/treasure-hunt/${siteId}`);
 
 /*
 // treasureLoader.ts
@@ -57,10 +67,11 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AuthProvider>
       <Router>
+        <AnalyticsListener />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
-          {TreasureHuntPaths?.map((path) => <Route key={path} path={path} element={<TreasureHunt />} />)}
+          {ART_FESTIVAL_TREASURE_HUNT_PATHS?.map(path => <Route key={path} path={path} element={<TreasureHunt />} />)}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

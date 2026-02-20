@@ -20,7 +20,6 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 initializeApp(firebaseConfig);
-console.log("API KEY:", import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
 
 const RootLayout = () => (
   <>

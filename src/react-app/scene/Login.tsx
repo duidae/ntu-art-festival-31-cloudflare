@@ -1,21 +1,28 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { useAuth } from "@/react-app/AuthContext";
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 
+interface LocationState {
+  from?: string;
+}
+
 export const Login = () => {
   const { user, isLoading, login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state as LocationState;
 
   useEffect(() => {
     if (user && !isLoading) {
-      console.log(`User detected in AuthContext, redirecting to ${MAP_ROUTE_PATH}`);
-      navigate(MAP_ROUTE_PATH);
+      const redirectTo = state?.from || MAP_ROUTE_PATH;
+      console.log(`User detected in AuthContext, redirecting to ${redirectTo}`);
+      navigate(redirectTo);
     } else {
       console.log("No user detected in AuthContext");
     }
-  }, [user, isLoading, navigate]);
+  }, [user, isLoading, navigate, state?.from]);
 
   const isLoadingJSX = (
     <div className="flex flex-col items-center justify-center p-6 h-full">

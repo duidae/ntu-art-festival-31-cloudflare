@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate, useLoaderData } from 'react-router-dom';
+import { useNavigate, useLoaderData, useLocation } from 'react-router-dom';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 import { useAuth } from "@/react-app/AuthContext";
@@ -10,15 +10,16 @@ interface TreasureHuntLoaderData {
 
 export const TreasureHunt = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as TreasureHuntLoaderData;
 
   useEffect(() => {
     console.log("Checking user authentication in TreasureHunt scene:", user, "isLoading:", isLoading);
     if (!isLoading && !user) {
-      navigate("/login");
+      navigate("/login", { state: { from: location.pathname } });
     }
-  }, [user, isLoading, navigate]);
+  }, [user, isLoading, navigate, location.pathname]);
 
   const handleBackToMap = () => {
     navigate(MAP_ROUTE_PATH);

@@ -22,7 +22,7 @@ export const TreasureHunt = () => {
   };
 
   return (
-    <AppLayout onLogoClick={handleBackToMap}>
+    <AppLayout>
       <div className="flex flex-col items-center justify-center p-6 h-full">
         <h1 className="text-2xl font-bold mb-4">寶藏獵人</h1>
         <p className="text-center mb-6">Site ID: <span className="font-mono font-bold">{displaySiteId}</span></p>

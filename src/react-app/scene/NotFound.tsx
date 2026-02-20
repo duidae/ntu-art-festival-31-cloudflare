@@ -10,7 +10,7 @@ export const NotFound = () => {
   };
 
   return (
-    <AppLayout onLogoClick={handleBackToMap}>
+    <AppLayout>
       <div className="flex flex-col items-center justify-center p-6 h-full">
         <h1 className="text-5xl font-bold mb-4">404</h1>
         <p className="text-center mb-6 text-lg">在分解的路途中迷失了嗎</p>

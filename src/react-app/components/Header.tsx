@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { User } from 'firebase/auth';
 import { LogIn, LogOut } from 'lucide-react';
-import { ART_FESTIVAL_APP_NAME } from '@/react-app/constants';
+import { ART_FESTIVAL_APP_NAME, MAP_ROUTE_PATH } from '@/react-app/constants';
 
-export const Header = ({ user, onLogoClick, onLogoutClick, onLoginClick }: {
+export const Header = ({ user, onLogoutClick, onLoginClick }: {
   user?: User | null;
-  onLogoClick?: () => void;
   onLogoutClick?: () => void;
   onLoginClick?: () => void;
 }) => {
+  const navigate = useNavigate();
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+
+  const handleLogoClick=() => {
+    navigate(MAP_ROUTE_PATH);
+  }
 
   const handleConfirmLogout = async () => {
     setShowLogoutConfirm(false);
@@ -74,7 +79,7 @@ export const Header = ({ user, onLogoClick, onLogoutClick, onLoginClick }: {
       <div className="h-10 border-b-2 border-zinc-900 flex justify-between items-center px-4 bg-white z-50 relative shrink-0">
         <span 
           className="font-mono font-bold text-xs tracking-widest cursor-pointer hover:opacity-75" 
-          onClick={onLogoClick}
+          onClick={handleLogoClick}
           dangerouslySetInnerHTML={{ __html: ART_FESTIVAL_APP_NAME }}
         />
         <div className="flex items-center gap-3">

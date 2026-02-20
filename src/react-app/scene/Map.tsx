@@ -313,13 +313,17 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     }
   };
 
+  const panToMissionsCenter = () => {
+    position && mapInstanceRef.current && mapInstanceRef.current.panTo(ART_FESTIVAL_CENTER, { animate: true });
+  };
+
   const panToUserLocation = () => {
     position && mapInstanceRef.current && mapInstanceRef.current.panTo([position.lat, position.lon], { animate: true });
   };
 
   const mapToolbarJSX = (
     <div className="absolute bottom-8 left-4 right-4 h-16 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
-      <button className="flex flex-col items-center gap-1 text-zinc-900 group">
+      <button className="flex flex-col items-center gap-1 text-zinc-900 group cursor-pointer" onClick={panToMissionsCenter}>
         <div className="bg-[#4dff88] p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
           <MapPin size={18} />
         </div>

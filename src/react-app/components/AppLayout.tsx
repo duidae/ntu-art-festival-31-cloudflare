@@ -5,12 +5,9 @@ import { NoiseOverlay } from '@/react-app/components/NoiseOverlay';
 import { useAuth } from '@/react-app/AuthContext';
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 
-interface AppLayoutProps {
+export const AppLayout = ({ children }: {
   children: ReactNode;
-  onLogoClick?: () => void;
-}
-
-export const AppLayout = ({ children, onLogoClick }: AppLayoutProps) => {
+}) => {
   const { user, login, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -25,7 +22,6 @@ export const AppLayout = ({ children, onLogoClick }: AppLayoutProps) => {
         <NoiseOverlay />
         <Header
           user={user}
-          onLogoClick={onLogoClick}
           onLogoutClick={handleLogout}
           onLoginClick={login}
         />

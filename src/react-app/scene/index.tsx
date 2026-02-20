@@ -5,4 +5,3 @@ export { Final } from './Final';
 export { MainMission } from './MainMission';
 export { SubMission } from './SubMission';
 export { TreasureHunt } from './TreasureHunt';
-export { NotFound } from './NotFound';

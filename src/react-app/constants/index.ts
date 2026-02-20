@@ -12,7 +12,7 @@ export const ART_FESTIVAL_TREASURE_HUNTER_START_DATE = '20260201';
 export const ART_FESTIVAL_TREASURE_HUNTER_END_DATE = '20260314';
 export const ART_FESTIVAL_START_DATE = '20260201';
 export const ART_FESTIVAL_END_DATE = '20260531';
-export const ART_FESTIVAL_TREASURE_HUNT_PATHS = ['kzqpt9', 'mrvxa7'].map(path => `/treasure-hunt/${path}`);
+export const ART_FESTIVAL_TREASURE_HUNT_PATHS = ['kzqpt9', 'mrvxa7'];
 
 export const MAP_ROUTE_PATH = '/?noIntro=true';
 

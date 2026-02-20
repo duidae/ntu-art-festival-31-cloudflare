@@ -1,31 +1,44 @@
 import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useLoaderData } from 'react-router-dom';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 import { useAuth } from "@/react-app/AuthContext";
 
+interface TreasureHuntLoaderData {
+  siteCode: string;
+}
+
 export const TreasureHunt = () => {
-  const user = useAuth();
-  const { siteId } = useParams<{ siteId: string }>();
   const navigate = useNavigate();
-  const displaySiteId = siteId ? `site-${siteId}` : 'unknown';
+  const { user, isLoading } = useAuth();
+  const { siteCode } = useLoaderData() as TreasureHuntLoaderData;
 
   useEffect(() => {
-    console.log("Current user:", user);
-    if (!user) {
-      navigate("/Login");
+    console.log("Checking user authentication in TreasureHunt scene:", user, "isLoading:", isLoading);
+    if (!isLoading && !user) {
+      navigate("/login");
     }
-  }, [user]);
+  }, [user, isLoading, navigate]);
 
   const handleBackToMap = () => {
     navigate(MAP_ROUTE_PATH);
   };
 
+  if (isLoading) {
+    return (
+      <AppLayout>
+        <div className="flex flex-col items-center justify-center p-6 h-full">
+          <p className="text-center text-gray-600">載入中...</p>
+        </div>
+      </AppLayout>
+    );
+  }
+
   return (
     <AppLayout>
       <div className="flex flex-col items-center justify-center p-6 h-full">
         <h1 className="text-2xl font-bold mb-4">寶藏獵人</h1>
-        <p className="text-center mb-6">Site ID: <span className="font-mono font-bold">{displaySiteId}</span></p>
+        <p className="text-center mb-6">Site Code: <span className="font-mono font-bold">{siteCode}</span></p>
         <div className="text-center text-sm text-gray-600 mb-8">
           <p>探索並發現此地點的故事和線索。</p>
         </div>

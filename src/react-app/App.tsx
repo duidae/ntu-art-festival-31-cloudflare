@@ -5,7 +5,7 @@ import { Intro, MissionMap, MainMission, SubMission, Final } from '@/react-app/s
 import { AppLayout } from '@/react-app/components/AppLayout';
 
 /**
- * 圳下之聲：瑠公圳的隱地下生態 (Voices from the Underground)
+ * 城市幽靈：瑠公圳的隱地下生態 (Voices from the Underground)
  * Style: DECOmposer (Art Festival / Brutalist / Deconstruction)
  * Palette: Light Gray Noise, Neon Green (#4dff88), Black
  */

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from 'firebase/auth';
-import { LogIn, LogOut } from 'lucide-react';
+import { UserRound, LogOut } from 'lucide-react';
 import { ART_FESTIVAL_APP_NAME, MAP_ROUTE_PATH } from '@/react-app/constants';
 
 export const Header = ({ user, onLogoutClick, onLoginClick }: {
@@ -40,10 +40,10 @@ export const Header = ({ user, onLogoutClick, onLoginClick }: {
   ) : (
     <button 
       onClick={onLoginClick} 
-      className="flex items-center gap-1 py-1 cursor-pointer"
+      className="w-6 h-6 flex flex-row justify-center items-center cursor-pointer rounded-full border border-zinc-900 hover:opacity-75"
       title="登入"
     >
-      <LogIn size={16} className="text-zinc-900"/>
+      <UserRound size={16} className="text-zinc-900"/>
     </button>
   );
 

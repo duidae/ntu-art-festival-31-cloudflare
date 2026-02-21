@@ -47,7 +47,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
         <p className="text-zinc-600 font-serif font-medium text-lg mb-8 leading-tight">
           第31屆<br/>
           <span className="bg-zinc-900 text-[#e8e8e6] px-1">臺大藝術季</span><br/>
-          DECOmposer Project
+          Decomposer Project
         </p>
 
         {step >= 1 && (

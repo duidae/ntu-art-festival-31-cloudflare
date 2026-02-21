@@ -125,7 +125,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       title: m.title,
       img: `<img src="${ART_FESTIVAL_LOGO}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
       story: m.story || "",
-      done: true,
+      done: false, // TODO: update by query db
     };
   }) ?? [];
 
@@ -181,27 +181,52 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   // Create marker icon; when `isActive` is false make it visually transparent/non-interactive
-  const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true) => L.divIcon({
-    className: 'custom-brutalist-icon',
-    html: `
-      <div style="
-        width: ${scene === SCENES.MAIN_MISSION ? SIZE.LARGE : ( scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM)}px;
-        height: ${scene === SCENES.MAIN_MISSION ? SIZE.LARGE : ( scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM)}px;
-        background: ${!isActive ? 'transparent' : (isDone ? '#d4d4d8' : '#4dff88')};
-        border: 2px solid #18181b; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-        box-shadow: ${!isActive ? 'none' : '3px 3px 0px 0px #18181b'};
-        opacity: ${!isActive ? 0.5 : 1};
-        cursor: ${isActive ? 'pointer' : 'not-allowed'};
-      ">
-        <div style="width: 8px; height: 8px; background: #18181b; rotate: 45deg;"></div>
-      </div>
-    `,
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
-  });
+  const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true) => {
+    const size = scene === SCENES.MAIN_MISSION ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
+    const innerContent = isDone
+      ? `<div style="
+          width: 12px;
+          height: 12px;
+          background: #4dff88;
+          border: 2px solid #18181b;
+          border-radius: 50%;
+          font-size: 8px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #18181b;
+        ">✓</div>`
+      : `<div style="
+          font-size: ${size * 0.6}px;
+          font-weight: bold;
+          color: #18181b;
+          line-height: 1;
+        ">?</div>`;
+
+    return L.divIcon({
+      className: 'custom-brutalist-icon',
+      html: `
+        <div style="
+          width: ${size}px;
+          height: ${size}px;
+          background: ${!isActive ? 'transparent' : (isDone ? '#d4d4d8' : '#4dff88')};
+          border: 2px solid #18181b;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: ${!isActive ? 'none' : '3px 3px 0px 0px #18181b'};
+          opacity: ${!isActive ? 0.5 : 1};
+          cursor: ${isActive ? 'pointer' : 'not-allowed'};
+          position: relative;
+        ">
+          ${innerContent}
+        </div>
+      `,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    });
+  };
 
   const initMap = (container: HTMLDivElement): L.Map => {
     const map = L.map(container, {

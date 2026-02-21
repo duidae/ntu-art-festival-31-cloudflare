@@ -8,13 +8,15 @@ import { SCENES } from '@/react-app/constants/enum';
 import {
   ART_FESTIVAL_CENTER,
   MISSIONS,
+  /*
   ART_FESTIVAL_TREASURE_HUNTER_START_DATE,
   ART_FESTIVAL_TREASURE_HUNTER_END_DATE,
   ART_FESTIVAL_START_DATE,
   ART_FESTIVAL_END_DATE,
+  */
   ART_FESTIVAL_LOGO,
 } from '@/react-app/constants';
-import { FormatDateYYYYMMDD, FormatLatLon } from '@/react-app/utils';
+import { FormatLatLon } from '@/react-app/utils';
 
 interface MapProps {
   setScene: (targetScene: {scene: SCENES, story: string}) => void;
@@ -74,10 +76,11 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     }
   }, [cameraStream]);
 
-  const todayYYYYMMDD = FormatDateYYYYMMDD(new Date());
-  const isTreasureHuntOutdated = todayYYYYMMDD > ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
-  const isTreasureHuntActive = todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
-  const isArtFestivalActive = todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
+  // const todayYYYYMMDD = FormatDateYYYYMMDD(new Date());
+  // const isTreasureHuntOutdated = ;//todayYYYYMMDD > ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
+  const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true"//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
+  const isArtFestivalActive = import.meta.env.VITE_ART_FESTIVAL_ENABLED === "true";// todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
+  
   const mainMissions = [
     {
       id: SCENES.MAIN_MISSION,
@@ -114,7 +117,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   });
 
   // TODO: Remove missions after art festival
-  const preMissions = !isTreasureHuntOutdated ? (MISSIONS.Pre?.map(m => {
+  const preMissions = MISSIONS.Pre?.map(m => {
     return {
       id: SCENES.OTHER_MISSION,
       isActive: isTreasureHuntActive,
@@ -124,7 +127,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       story: m.story || "",
       done: true,
     };
-  }) ?? []) : [];
+  }) ?? [];
 
   const otherMissions = MISSIONS.Others?.map(m => {
     return {

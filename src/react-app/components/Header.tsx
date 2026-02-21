@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from 'firebase/auth';
 import { UserRound, LogOut } from 'lucide-react';
@@ -11,6 +11,7 @@ export const Header = ({ user, onLogoutClick, onLoginClick }: {
 }) => {
   const navigate = useNavigate();
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const usrPhoto = useMemo(() => user?.photoURL, [user?.uid]);
 
   const handleLogoClick=() => {
     navigate(MAP_ROUTE_PATH);
@@ -25,7 +26,7 @@ export const Header = ({ user, onLogoutClick, onLoginClick }: {
     <div className="flex items-center gap-2">
       {user.photoURL ? (
         <img 
-          src={user.photoURL} 
+          src={usrPhoto || '/art-festival-logo.png'}
           alt={user.displayName || 'User'} 
           className="w-6 h-6 rounded-full border border-zinc-900 cursor-pointer hover:opacity-75"
           onClick={() => setShowLogoutConfirm(true)}

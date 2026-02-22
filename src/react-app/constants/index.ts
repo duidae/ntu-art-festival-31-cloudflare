@@ -12,7 +12,11 @@ export const ART_FESTIVAL_TREASURE_HUNTER_START_DATE = '20260201';
 export const ART_FESTIVAL_TREASURE_HUNTER_END_DATE = '20260314';
 export const ART_FESTIVAL_START_DATE = '20260201';
 export const ART_FESTIVAL_END_DATE = '20260531';
-export const ART_FESTIVAL_TREASURE_HUNT_PATHS = ['kzqpt9', 'mrvxa7'];
+export const ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP = new Map<string, any>([
+  ['kzqpt9', treasureHunterMissions[0]],
+  ['mrvxa7', treasureHunterMissions[1]],
+]);
+export const ART_FESTIVAL_TREASURE_HUNT_PATHS = Array.from(ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP.keys());
 
 export const MAP_ROUTE_PATH = '/?noIntro=true';
 

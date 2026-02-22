@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useLoaderData, useLocation } from 'react-router-dom';
 import { AppLayout } from '@/react-app/components/AppLayout';
-import { MAP_ROUTE_PATH } from '@/react-app/constants';
+import { MAP_ROUTE_PATH, ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP } from '@/react-app/constants';
 import { useAuth } from "@/react-app/AuthContext";
 
 interface TreasureHuntLoaderData {
@@ -13,6 +13,7 @@ export const TreasureHunt = () => {
   const location = useLocation();
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as TreasureHuntLoaderData;
+  const mission = ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP.get(siteCode);
 
   useEffect(() => {
     console.log("Checking user authentication in TreasureHunt scene:", user, "isLoading:", isLoading);
@@ -38,7 +39,7 @@ export const TreasureHunt = () => {
   return (
     <AppLayout>
       <div className="flex flex-col items-center justify-center p-6 h-full">
-        <h1 className="text-2xl font-bold mb-4">寶藏獵人</h1>
+        <h1 className="text-2xl font-bold mb-4">{mission?.title || '寶藏獵人'}</h1>
         <p className="text-center mb-6">Site Code: <span className="font-mono font-bold">{siteCode}</span></p>
         <div className="text-center text-sm text-gray-600 mb-8">
           <p>探索並發現此地點的故事和線索。</p>

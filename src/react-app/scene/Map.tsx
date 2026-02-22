@@ -363,13 +363,13 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
         <span className="text-[10px] font-bold tracking-tighter">定位</span>
       </button>
-      <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
+      {isArtFestivalActive && <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
         <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#4dff88] rounded-full border border-black z-10"></div>
         <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
            <Scan size={18} />
         </div>
         <span className="text-[10px] font-bold tracking-tighter">掃描</span>
-      </button>
+      </button>}
     </div>
   );
 

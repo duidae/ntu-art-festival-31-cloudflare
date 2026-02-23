@@ -4,6 +4,7 @@ import { useAuth } from "@/react-app/AuthContext";
 import { MAP_ROUTE_PATH, ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP } from '@/react-app/constants';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { MissionView } from '@/react-app/scene/MissionView';
+import { updateUser } from '@/react-app/services/user.service';
 
 interface TreasureHuntLoaderData {
   siteCode: string;
@@ -22,6 +23,23 @@ export const TreasureHunt = () => {
       navigate("/login", { state: { from: location.pathname } });
     }
   }, [user, isLoading, navigate, location.pathname]);
+
+  useEffect(() => {
+    if (!isLoading && user && siteCode) {
+      const recordVisit = async () => {
+        try {
+          await updateUser(user.uid, {
+            visitedSites: {
+              [`/treasure-hunt/${siteCode}`]: true
+            }
+          });
+        } catch (err) {
+          console.error('Failed to record visited site:', err);
+        }
+      };
+      recordVisit();
+    }
+  }, [user, isLoading, siteCode]);
 
   useEffect(() => {
     if (!mission?.story) {

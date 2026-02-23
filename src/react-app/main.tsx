@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, LoaderFunctionArgs, Outlet } from "react-router-dom";
 import { AuthProvider } from "@/react-app/AuthContext";
 import { ART_FESTIVAL_TREASURE_HUNT_PATHS } from "@/react-app/constants";
-import { App } from "@/react-app/App.tsx";
+import { App } from "@/react-app/App";
 import { AnalyticsListener } from "@/react-app/AnalyticsListener";
 import { ErrorBoundary } from "@/react-app/components/ErrorBoundary";
 import { Login, TreasureHunt } from "@/react-app/scene";

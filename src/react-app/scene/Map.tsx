@@ -17,6 +17,8 @@ import {
   ART_FESTIVAL_LOGO,
 } from '@/react-app/constants';
 import { FormatLatLon } from '@/react-app/utils';
+import { useAuth } from '@/react-app/AuthContext';
+import { getUser } from '@/react-app/services/user.service';
 
 interface MapProps {
   setScene: (targetScene: {scene: SCENES, story: string}) => void;
@@ -36,12 +38,14 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const userCircleRef = useRef<CircleMarker | null>(null);
   const watchIdRef = useRef<number | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const { user, isLoading: authLoading } = useAuth();
 
   const allDone = progress.m1 && progress.m2 && progress.m3;
   const [position, setPosition] = useState<{lat: number; lon: number; accuracy?: number} | null>(null);
   const [geoError, setGeoError] = useState<string | null>(null);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const [cameraActive, setCameraActive] = useState(false);
+  const [visitedSites, setVisitedSites] = useState<Record<string, boolean> | null>(null);
 
   useEffect(() => {
     requestGeolocation();
@@ -67,7 +71,25 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         mapInstanceRef.current = null;
       }
     };
-  }, [setScene, progress]);
+  }, [setScene, progress, visitedSites]);
+
+  useEffect(() => {
+    const fetchVisitedSites = async () => {
+      if (!authLoading && user) {
+        try {
+          const userData = await getUser(user.uid);
+          setVisitedSites(userData?.visitedSites || {});
+        } catch (err) {
+          console.error('Failed to fetch visited sites:', err);
+          setVisitedSites({});
+        }
+      } else if (!authLoading && !user) {
+        setVisitedSites({});
+      }
+    };
+
+    fetchVisitedSites();
+  }, [user, authLoading]);
   
   useEffect(() => {
     if (videoRef.current && cameraStream) {
@@ -125,7 +147,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       title: m.title,
       img: `<img src="${ART_FESTIVAL_LOGO}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
       story: m.story || "",
-      done: false, // TODO: update by query db
+      done: visitedSites?.[`/treasure-hunt/${m.siteCode}`] === true,
     };
   }) ?? [];
 

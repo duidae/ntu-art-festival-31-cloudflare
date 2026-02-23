@@ -18,7 +18,6 @@ export const TreasureHunt = () => {
   const [story, setStory] = useState<any>(null);
 
   useEffect(() => {
-    console.log("Checking user authentication in TreasureHunt scene:", user, "isLoading:", isLoading);
     if (!isLoading && !user) {
       navigate("/login", { state: { from: location.pathname } });
     }

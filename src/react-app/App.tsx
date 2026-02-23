@@ -10,7 +10,7 @@ import { AppLayout } from '@/react-app/components/AppLayout';
  * Palette: Light Gray Noise, Neon Green (#4dff88), Black
  */
 
-export default function App() {
+export const App = () => {
   const [searchParams] = useSearchParams();
   const noIntro = searchParams.get('noIntro') === 'true';
   
@@ -30,4 +30,6 @@ export default function App() {
       {currentScene.scene === SCENES.FINALE && <Final onChangeScene={backToMap} />}
     </AppLayout>
   );
-}
+};
+
+export default App;

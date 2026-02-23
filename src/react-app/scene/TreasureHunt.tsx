@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useLoaderData, useLocation } from 'react-router-dom';
 import { useAuth } from "@/react-app/AuthContext";
-import { MAP_ROUTE_PATH, ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP } from '@/react-app/constants';
+import { MAP_ROUTE_PATH } from '@/react-app/constants';
+import { TREASURE_HUNT_MISSIONS } from '@/react-app/constants/sideMissions';
 import { AppLayout } from '@/react-app/components/AppLayout';
 import { MissionView } from '@/react-app/scene/MissionView';
 import { updateUser } from '@/react-app/services/user.service';
@@ -15,7 +16,7 @@ export const TreasureHunt = () => {
   const location = useLocation();
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as TreasureHuntLoaderData;
-  const mission = ART_FESTIVAL_TREASURE_HUNT_CODE_MISSION_MAP.get(siteCode);
+  const mission = TREASURE_HUNT_MISSIONS.find(m => m.siteCode === siteCode);
   const [story, setStory] = useState<any>(null);
 
   useEffect(() => {

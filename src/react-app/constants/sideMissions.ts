@@ -1,13 +1,16 @@
 const treasureHunterDate = '20260314';
-export const treasureHunterMissions = [{
+export const TREASURE_HUNT_MISSIONS = [{
   title: `${treasureHunterDate} 尋寶任務1`,
+  siteCode: 'kzqpt9',
   coordinates: [25.017402609593443, 121.53730641111117],
   story: '/story/treasure-hunt-mission-1.json',
 }, {
   title: `${treasureHunterDate} 尋寶任務2`,
+  siteCode: 'mrvxa7',
   coordinates: [25.01965982053691, 121.5373029850519],
   story: '/story/treasure-hunt-mission-2.json',
 }];
+export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => m.siteCode);
 
 export const otherInstallations = [{
   title: '奇美拉',

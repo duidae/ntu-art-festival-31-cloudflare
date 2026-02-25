@@ -202,25 +202,21 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     }
   };
 
-  // Create marker icon; when `isActive` is false make it visually transparent/non-interactive
   const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true) => {
     const size = scene === SCENES.MAIN_MISSION ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
     const innerContent = isDone
       ? `<div style="
           width: 12px;
           height: 12px;
-          background: #4dff88;
-          border: 2px solid #18181b;
-          border-radius: 50%;
-          font-size: 8px;
+          font-size: 12px;
           font-weight: bold;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #18181b;
-        ">✓</div>`
+        ">★</div>`
       : `<div style="
-          font-size: ${size * 0.6}px;
+          font-size: 12px;
           font-weight: bold;
           color: #18181b;
           line-height: 1;

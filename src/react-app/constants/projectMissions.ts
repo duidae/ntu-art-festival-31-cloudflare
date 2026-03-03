@@ -1,16 +1,8 @@
 export const mainMissions = [{
-  time: '過去',
-  title: '幽靈們',
-  coordinates: [25.01764331524153, 121.53374543491627],
+  time: '過去/現在/未來',
+  title: '困境與希望',
+  coordinates: [25.019462, 121.537305],
   img: '/mission-1-catfish.png',
-}, {
-  time: '現在',
-  title: '困境',
-  coordinates: [25.017603945007906, 121.53420783315862],
-}, {
-  time: '未來',
-  title: '希望與飛翔',
-  coordinates: [25.017655578740683, 121.5338336633644],
 }];
 
 export const subMissions = [{

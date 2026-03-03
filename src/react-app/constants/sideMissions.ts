@@ -23,8 +23,8 @@ export const otherInstallations = [{
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }, {
-  title: '窗殺紀念碑',
-  coordinates: [25.01781990436312, 121.53382737817032],
+  title: '碰撞',
+  coordinates: [25.01806026511564, 121.54020423321757],
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }];

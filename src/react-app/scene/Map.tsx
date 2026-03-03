@@ -111,19 +111,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       title: MISSIONS.Main[0].title,
       img: `<img src="${MISSIONS.Main[0].img || ''}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
       done: progress.m1
-    }, {
-      id: SCENES.MAIN_MISSION,
-      isActive: isArtFestivalActive,
-      pos: MISSIONS.Main[1].coordinates as L.LatLngExpression,
-      title: MISSIONS.Main[1].title,
-      done: progress.m2
-    }, {
-      id: SCENES.MAIN_MISSION,
-      isActive: isArtFestivalActive,
-      pos: MISSIONS.Main[2].coordinates as L.LatLngExpression,
-      title: MISSIONS.Main[2].title,
-      done: progress.m3
-    },
+    }
   ];
 
   const subMissions = MISSIONS.Sub.map(m => {
@@ -203,7 +191,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true) => {
-    const size = scene === SCENES.MAIN_MISSION ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
+    const size = (scene === SCENES.MAIN_MISSION || scene === SCENES.OTHER_MISSION) ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
     const innerContent = isDone
       ? `<div style="
           width: 12px;

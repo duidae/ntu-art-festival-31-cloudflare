@@ -15,6 +15,8 @@ import {
   ART_FESTIVAL_END_DATE,
   */
   ART_FESTIVAL_LOGO,
+  THEME_COLOR_VALUES,
+  DEFAULT_COLOR,
 } from '@/react-app/constants';
 import { FormatLatLon } from '@/react-app/utils';
 import { useAuth } from '@/react-app/AuthContext';
@@ -127,7 +129,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   });
 
   // TODO: Remove missions after art festival
-  const preMissions = MISSIONS.Pre?.map(m => {
+  const preMissions = MISSIONS.Pre?.map((m, index) => {
     return {
       id: SCENES.OTHER_MISSION,
       isActive: isTreasureHuntActive,
@@ -136,6 +138,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       img: `<img src="${ART_FESTIVAL_LOGO}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
       story: m.story || "",
       done: visitedSites?.[`/treasure-hunt/${m.siteCode}`] === true,
+      color: THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length]
     };
   }) ?? [];
 
@@ -190,7 +193,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     }
   };
 
-  const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true) => {
+  const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true, color: string = DEFAULT_COLOR) => {
     const size = (scene === SCENES.MAIN_MISSION || scene === SCENES.OTHER_MISSION) ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
     const innerContent = isDone
       ? `<div style="
@@ -201,12 +204,12 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #18181b;
+          color: white;
         ">★</div>`
       : `<div style="
           font-size: 12px;
           font-weight: bold;
-          color: #18181b;
+          color: white;
           line-height: 1;
         ">?</div>`;
 
@@ -216,7 +219,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         <div style="
           width: ${size}px;
           height: ${size}px;
-          background: ${!isActive ? 'transparent' : (isDone ? '#d4d4d8' : '#4dff88')};
+          background: ${!isActive ? 'transparent' : (isDone ? color : DEFAULT_COLOR)};
           border: 2px solid #18181b;
           display: flex;
           align-items: center;
@@ -292,7 +295,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         'p-4 bg-white font-mono flex flex-col items-center';
 
       const marker = L.marker(m.pos, {
-        icon: createMarkerIcon(m.done, m.id, m.isActive),
+        icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || DEFAULT_COLOR),
         interactive: true, // 🔥 force interaction
       }).addTo(map);
 

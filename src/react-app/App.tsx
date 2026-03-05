@@ -8,6 +8,7 @@ import { AppLayout } from '@/react-app/components/AppLayout';
  * 城市幽靈：瑠公圳的隱地下生態 (City ghosts from the Underground)
  * Style: DECOmposer (Art Festival / Brutalist / Deconstruction)
  * Palette: Light Gray Noise, Neon Green (#4dff88), Black
+ * Palette: #097261 #ca242b #c29f72 #6d6b69
  */
 
 export const App = () => {

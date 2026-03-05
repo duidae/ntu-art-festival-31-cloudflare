@@ -20,3 +20,11 @@ export const MISSIONS = {
   Pre: TREASURE_HUNT_MISSIONS, // treasure hunter missions
   Others: otherInstallations, // other installations
 };
+
+export const THEME_COLORS = {
+  Green: '#097261',
+  Red: '#ca242b',
+  Brown: '#c29f72',
+};
+export const THEME_COLOR_VALUES = Object.values(THEME_COLORS);
+export const DEFAULT_COLOR = '#6d6b69';

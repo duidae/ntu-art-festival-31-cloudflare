@@ -15,6 +15,8 @@ import {
   ART_FESTIVAL_END_DATE,
   */
   ART_FESTIVAL_LOGO,
+  ART_FESTIVAL_LOGO_SVG,
+  THEME_COLORS,
   THEME_COLOR_VALUES,
   DEFAULT_COLOR,
 } from '@/react-app/constants';
@@ -130,15 +132,24 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
 
   // TODO: Remove missions after art festival
   const preMissions = MISSIONS.Pre?.map((m, index) => {
+    const color = THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length];
     return {
       id: SCENES.OTHER_MISSION,
       isActive: isTreasureHuntActive,
       pos: m.coordinates as L.LatLngExpression,
       title: m.title,
-      img: `<img src="${ART_FESTIVAL_LOGO}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
+      img: `
+        <div style="
+          width:100%;
+          height:100%;
+          background:${color};
+          -webkit-mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
+          mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
+        "></div>
+      `,
       story: m.story || "",
       done: visitedSites?.[`/treasure-hunt/${m.siteCode}`] === true,
-      color: THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length]
+      color: color
     };
   }) ?? [];
 
@@ -291,6 +302,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   ) => {
     missions.forEach((m) => {
       const popupContent = document.createElement('div');
+      popupContent.style = `background: ${m.done ? m.color : DEFAULT_COLOR};`
       popupContent.className =
         'p-4 bg-white font-mono flex flex-col items-center';
 
@@ -300,7 +312,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       }).addTo(map);
 
       const iconHtml = m.done
-        ? `<div class="w-36 h-36 mb-2 flex items-center justify-center bg-[#4dff88] border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
+        ? `<div style="background: ${DEFAULT_COLOR};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
         : `<div class="w-12 h-12 mb-2 flex items-center justify-center bg-zinc-100 border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -312,7 +324,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       popupContent.innerHTML = `
         ${iconHtml}
         <p class="text-[10px] font-black mb-2 uppercase tracking-widest text-zinc-900">${m.title}</p>
-        <button class="bg-zinc-900 text-[#4dff88] px-4 py-1 text-[10px] font-bold border-2 border-black hover:bg-zinc-800 transition-colors uppercase cursor-pointer">
+        <button style="color: ${THEME_COLORS.Cream};" class="bg-zinc-900 px-4 py-1 text-[10px] font-bold border-2 border-black hover:bg-zinc-800 transition-colors uppercase cursor-pointer">
           ${m.done ? '檔案已歸檔' : '進入節點'}
         </button>
       `;

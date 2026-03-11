@@ -52,7 +52,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
 
         {step >= 1 && (
           <div className="animate-fade-in w-full">
-            <div className="bg-white border-2 border-zinc-900 p-4 mb-8 shadow-[4px_4px_0px_0px_#4dff88]">
+            <div className="bg-white border-2 border-zinc-900 p-4 mb-8 shadow-[4px_4px_0px_0px_#18181b]">
               {/* TODO: make ... jump */}
               <p className="font-mono text-xs text-zinc-400 mb-1">// INCOMING MESSAGE...</p>
               <p className="text-sm font-bold text-zinc-900">

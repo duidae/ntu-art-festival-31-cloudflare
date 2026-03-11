@@ -302,17 +302,17 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   ) => {
     missions.forEach((m) => {
       const popupContent = document.createElement('div');
-      popupContent.style = `background: ${m.done ? m.color : DEFAULT_COLOR};`
+      popupContent.style = `background: ${m.done ? m.color : THEME_COLORS.DarkGray};`
       popupContent.className =
         'p-4 bg-white font-mono flex flex-col items-center';
 
       const marker = L.marker(m.pos, {
-        icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || DEFAULT_COLOR),
+        icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || THEME_COLORS.DarkGray),
         interactive: true, // 🔥 force interaction
       }).addTo(map);
 
       const iconHtml = m.done
-        ? `<div style="background: ${DEFAULT_COLOR};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
+        ? `<div style="background: ${THEME_COLORS.DarkGray};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
         : `<div class="w-12 h-12 mb-2 flex items-center justify-center bg-zinc-100 border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -373,7 +373,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const mapToolbarJSX = (
     <div className="absolute bottom-8 left-4 right-4 h-16 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
       <button className="flex flex-col items-center gap-1 text-zinc-900 group cursor-pointer" onClick={panToMissionsCenter}>
-        <div className="bg-[#4dff88] p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
+        <div style={{ background: THEME_COLORS.Cream }} className="p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
           <MapPin size={18} />
         </div>
         <span className="text-[10px] font-bold tracking-tighter">地圖</span>

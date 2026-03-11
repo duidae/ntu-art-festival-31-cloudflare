@@ -23,11 +23,13 @@ export const MISSIONS = {
 };
 
 export const THEME_COLORS = {
-  Green: '#097261',
-  Red: '#ca242b',
-  Brown: '#c29f72',
+  Green: '#177b6d',
+  Red: '#d72b2d',
+  Brown: '#d4b386',
   Cream: '#dcd8cb',
+  LightGray: '#e0e0e1',
+  MediumGray: '#d1d1d1',
+  DarkGray: '#767575',
 };
-// #dcd8cb #d1d1d1 #e0e0e1
 export const THEME_COLOR_VALUES = [THEME_COLORS.Green, THEME_COLORS.Red, THEME_COLORS.Brown];
-export const DEFAULT_COLOR = '#d1d1d1';
+export const DEFAULT_COLOR = THEME_COLORS.DarkGray;

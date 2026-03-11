@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
-import { ART_FESTIVAL_APP_NAME } from '@/react-app/constants';
+import { ART_FESTIVAL_APP_NAME, ART_FESTIVAL_LOGO } from '@/react-app/constants';
 
 interface IntroSceneProps {
   onChangeScene: () => void;
@@ -21,9 +21,9 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
       
       <div className="absolute top-8 right-8 z-20">
         <img 
-          src="/art-festival-logo.png" 
+          src={ART_FESTIVAL_LOGO} 
           alt="DECOmposer Logo" 
-          className="h-30 w-auto"
+          className="h-40 w-auto"
           loading="eager"
         />
       </div>

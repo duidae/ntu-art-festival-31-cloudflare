@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from 'firebase/auth';
 import { UserRound, LogOut } from 'lucide-react';
-import { ART_FESTIVAL_APP_NAME, MAP_ROUTE_PATH } from '@/react-app/constants';
+import { ART_FESTIVAL_APP_NAME, ART_FESTIVAL_LOGO, MAP_ROUTE_PATH } from '@/react-app/constants';
 
 export const Header = ({ user, onLogoutClick, onLoginClick }: {
   user?: User | null;
@@ -26,7 +26,7 @@ export const Header = ({ user, onLogoutClick, onLoginClick }: {
     <div className="flex items-center gap-2">
       {user.photoURL ? (
         <img 
-          src={usrPhoto || '/art-festival-logo.png'}
+          src={usrPhoto || ART_FESTIVAL_LOGO}
           alt={user.displayName || 'User'} 
           className="w-6 h-6 rounded-full border border-zinc-900 cursor-pointer hover:opacity-75"
           onClick={() => setShowLogoutConfirm(true)}

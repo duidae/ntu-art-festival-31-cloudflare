@@ -140,8 +140,8 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       title: m.title,
       img: `
         <div style="
-          width:100%;
-          height:100%;
+          width:90%;
+          height:90%;
           background:${color};
           -webkit-mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
           mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
@@ -312,7 +312,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       }).addTo(map);
 
       const iconHtml = m.done
-        ? `<div style="background: ${THEME_COLORS.DarkGray};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
+        ? `<div style="background: ${THEME_COLORS.MediumGray};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`
         : `<div class="w-12 h-12 mb-2 flex items-center justify-center bg-zinc-100 border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>

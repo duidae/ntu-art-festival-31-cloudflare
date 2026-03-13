@@ -85,7 +85,7 @@ export const Header = ({ user, onLogoutClick, onLoginClick }: {
         />
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <div style={{ backgroundColor: THEME_COLORS.Red }} className="w-2 h-2 rounded-full animate-pulse border border-zinc-900" />
+            <div style={{ backgroundColor: THEME_COLORS.Green }} className="w-2 h-2 rounded-full animate-pulse border border-zinc-900" />
             <span className="font-mono text-xs font-bold">訊號連線中</span>
           </div>
           {avatarJSX}

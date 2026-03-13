@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
-import { ART_FESTIVAL_APP_NAME, ART_FESTIVAL_LOGO } from '@/react-app/constants';
+import { ART_FESTIVAL_APP_NAME, ART_FESTIVAL_LOGO, THEME_COLORS } from '@/react-app/constants';
 
 interface IntroSceneProps {
   onChangeScene: () => void;
@@ -29,7 +29,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
       </div>
       
       <svg className="absolute w-full h-full pointer-events-none opacity-60 z-0" style={{top: 0, left: 0}}>
-         <path d="M -50 400 L 100 550 L 250 350 L 450 600" stroke="#4dff88" strokeWidth="12" fill="none" strokeLinecap="square" />
+         <path d="M -50 400 L 100 550 L 250 350 L 450 600" stroke={THEME_COLORS.Green} strokeWidth="12" fill="none" strokeLinecap="square" />
          <circle cx="100" cy="550" r="6" fill="black" />
          <circle cx="250" cy="350" r="6" fill="black" />
       </svg>
@@ -39,7 +39,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
         <h1 className="text-6xl font-black text-zinc-900 leading-[0.85] tracking-tighter mb-6 relative">
           分DECO<br/>
           <span>&nbsp;&nbsp;&nbsp;&nbsp;mposer解者</span>
-          <span className="absolute -right-4 -top-4 w-12 h-12 bg-[#4dff88] rounded-full mix-blend-multiply opacity-80"></span>
+          <span style={{ backgroundColor: THEME_COLORS.Brown }} className="absolute -right-4 -top-4 w-12 h-12 rounded-full mix-blend-multiply opacity-80"></span>
         </h1>
         
         <div className="w-full h-0.5 bg-zinc-900 mb-6"></div>

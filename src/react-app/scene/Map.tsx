@@ -189,7 +189,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
             if (userCircleRef.current) {
               userCircleRef.current.setLatLng([newPosition.lat, newPosition.lon]);
             } else if (newPosition.accuracy) {
-              const circle = L.circleMarker([newPosition.lat, newPosition.lon], { radius: 50, color: '#4dff88', fillColor: '#4dff88', fillOpacity: 0.75, weight: 1 }).addTo(mapInstanceRef.current);
+              const circle = L.circleMarker([newPosition.lat, newPosition.lon], { radius: 50, color: THEME_COLORS.Brown, fillColor: THEME_COLORS.Brown, fillOpacity: 0.75, weight: 1 }).addTo(mapInstanceRef.current);
               userCircleRef.current = circle;
             }
           }
@@ -284,7 +284,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     const marker = L.marker(currentPosition, { 
       icon: L.divIcon({
         className: 'user-icon',
-        html: `<div class="w-4 h-4 bg-zinc-900 rotate-45 border-2 border-[#4dff88] animate-spin-slow"></div>`,
+        html: `<div class="w-4 h-4 bg-zinc-900 rotate-45 border-2 animate-spin-slow"></div>`,
         iconSize: [16, 16],
         iconAnchor: [8, 8],
       })
@@ -399,7 +399,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       <div ref={mapContainerRef} className="flex-1 z-0 grayscale contrast-125" style={{ minHeight: 480 }} />
       
       <div className="absolute top-3 left-4 z-[100] flex items-center gap-2">
-        <div className="flex flex-row align-center gap-1 bg-zinc-900 text-white p-2 border-2 border-[#4dff88] font-mono text-[10px]">
+        <div style={{ borderColor: THEME_COLORS.Cream }} className="flex flex-row align-center gap-1 bg-zinc-900 text-white p-2 border-2 font-mono text-[10px]">
           {position ? FormatLatLon(position.lat, position.lon) : geoError || '定位中...'}
           {geoError && <button className="cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}><CircleQuestionMark size={14}/></button>}
         </div>

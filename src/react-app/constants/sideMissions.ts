@@ -19,7 +19,7 @@ export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => 
 
 export const otherInstallations = [{
   title: '奇美拉',
-  coordinates: [25.01730978748543, 121.53938221654623],
+  coordinates: [25.01746905336982, 121.5402407988009],
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }, {

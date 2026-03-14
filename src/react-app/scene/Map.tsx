@@ -19,6 +19,7 @@ import {
   THEME_COLORS,
   THEME_COLOR_VALUES,
   DEFAULT_COLOR,
+  MAP_ZOOM,
 } from '@/react-app/constants';
 import { FormatLatLon } from '@/react-app/utils';
 import { useAuth } from '@/react-app/AuthContext';
@@ -104,7 +105,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
 
   // const todayYYYYMMDD = FormatDateYYYYMMDD(new Date());
   // const isTreasureHuntOutdated = ;//todayYYYYMMDD > ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
-  const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true"//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
+  const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
   const isArtFestivalActive = import.meta.env.VITE_ART_FESTIVAL_ENABLED === "true";// todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
   
   const mainMissions = [
@@ -236,7 +237,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
           align-items: center;
           justify-content: center;
           box-shadow: ${!isActive ? 'none' : '3px 3px 0px 0px #18181b'};
-          opacity: ${!isActive ? 0.5 : 1};
+          opacity: ${!isActive ? 0.2 : 1};
           cursor: ${isActive ? 'pointer' : 'not-allowed'};
           position: relative;
         ">
@@ -253,7 +254,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       zoomControl: false,
       attributionControl: true,
       scrollWheelZoom: true,
-    }).setView(ART_FESTIVAL_CENTER, 15);
+    }).setView(ART_FESTIVAL_CENTER, MAP_ZOOM);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,

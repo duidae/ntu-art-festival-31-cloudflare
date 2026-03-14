@@ -4,7 +4,9 @@ import { TREASURE_HUNT_MISSIONS, otherInstallations } from './sideMissions';
 export const CATFISH_3D_MODEL = 'mission-1-catfish.glb';
 export const CATFISH_3D_MODEL_COVER = 'mission-1-catfish.png';
 
-export const ART_FESTIVAL_CENTER: [number, number] = [25.018429, 121.538275]; // NTU center coordinates
+const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";
+export const MAP_ZOOM = isTreasureHuntActive ? 16 : 15;
+export const ART_FESTIVAL_CENTER: [number, number] = isTreasureHuntActive ? [25.01649805594977, 121.53832289070492] : [25.018429, 121.538275]; // NTU center coordinates
 export const ART_FESTIVAL_APP_NAME = 'NTU 31<sup>st</sup> ART FESTIVAL';
 export const ART_FESTIVAL_LOGO = '/art-festival-logo.png';
 export const ART_FESTIVAL_LOGO_SVG = '/art-festival-logo.svg';

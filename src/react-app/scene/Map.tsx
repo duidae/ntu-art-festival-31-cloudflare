@@ -406,7 +406,6 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
       </div>
 
-      {/* Finale Trigger */}
       {allDone && (
         <div className="absolute inset-0 bg-white/90 z-[2000] flex flex-col items-center justify-center animate-fade-in p-8">
           <div className="relative mb-6">

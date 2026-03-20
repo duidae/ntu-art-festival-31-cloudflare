@@ -1,4 +1,4 @@
-const treasureHunterDate = '20260314';
+const treasureHunterDate = '2026藝術週';
 export const TREASURE_HUNT_MISSIONS = [{
   title: `${treasureHunterDate} 尋寶任務1`,
   siteCode: 'kzqpt9',

@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { SanitizeHref } from '@/react-app/utils';
+import { THEME_COLORS } from '@/react-app/constants';
 
 interface MissionViewProps {
   story: any;
@@ -81,7 +82,7 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
 
       <div className="z-10 mb-6 flex justify-between items-center border-b-2 border-zinc-900 pb-2">
         <h3 className="text-xl font-black uppercase flex items-center gap-2">
-          <span className="bg-[#4dff88] text-zinc-900 px-1">支線</span> {story.title}
+          <span style={{ backgroundColor: THEME_COLORS.Green, color: 'white'}} className="text-zinc-900 px-1">支線</span> {story.title}
         </h3>
         <button onClick={() => onClose()} className="cursor-pointer"><X size={20} /></button>
       </div>

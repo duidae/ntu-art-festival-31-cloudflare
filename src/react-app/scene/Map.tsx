@@ -385,6 +385,12 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
         <span className="text-[10px] font-bold tracking-tighter">定位</span>
       </button>
+      <button className={`flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer`} onClick={() => {setScene({ scene: SCENES.SUB_MISSION, story: "/story/about-art-festival.json" });}}>
+        <div style={{ backgroundColor: THEME_COLORS.Cream }} className="border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
+           <img style={{width: 28, height: 28}} src={ART_FESTIVAL_LOGO} alt="ntu art festival" />
+        </div>
+        <span className="text-[10px] font-bold tracking-tighter">關於</span>
+      </button>
       {isArtFestivalActive && <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
         <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#4dff88] rounded-full border border-black z-10"></div>
         <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">

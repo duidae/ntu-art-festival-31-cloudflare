@@ -23,7 +23,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
         <img 
           src={ART_FESTIVAL_LOGO} 
           alt="DECOmposer Logo" 
-          className="h-40 w-auto"
+          className="h-32 md:h-40 w-auto"
           loading="eager"
         />
       </div>
@@ -42,6 +42,7 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
           className="w-full max-w-md object-contain mb-6"
           loading="eager"
         />
+        <span style={{ backgroundColor: THEME_COLORS.Brown }} className="absolute -right-4 -top-4 w-12 h-12 rounded-full mix-blend-multiply opacity-80"></span>
 
         <div className="w-full h-0.5 bg-zinc-900 mb-6"></div>
 

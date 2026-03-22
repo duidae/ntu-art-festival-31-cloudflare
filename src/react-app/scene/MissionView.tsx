@@ -4,6 +4,12 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { SanitizeHref } from '@/react-app/utils';
 import { THEME_COLORS } from '@/react-app/constants';
 
+const getYouTubeVideoId = (url: string) => {
+  const youtubeRegex = /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(youtubeRegex);
+  return match ? match[1] : null;
+};
+
 interface MissionViewProps {
   story: any;
   onClose: () => void;
@@ -51,11 +57,24 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
         case 'video':
           return (
             <div key={`section-${index}`}>
-              <video key={`video-${index}`} controls className="mb-4 w-full h-auto">
-                <source src={SanitizeHref(item.url)} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              {item.ref && renderRef(item.ref)}
+              {getYouTubeVideoId(item.url) ? 
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${getYouTubeVideoId(item.url)}`}
+                  title="YouTube video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen>
+                </iframe> :
+                <>
+                  <video key={`video-${index}`} controls className="mb-4 w-full h-auto">
+                    <source src={SanitizeHref(item.url)} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {item.ref && renderRef(item.ref)}
+                </>
+              }
             </div>
           );
         case 'image-compare':

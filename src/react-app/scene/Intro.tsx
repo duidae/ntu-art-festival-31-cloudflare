@@ -36,12 +36,13 @@ export const Intro = ({ onChangeScene }: IntroSceneProps) => {
 
       <div className="z-10 w-full flex flex-col items-start relative">
         <h2 className="text-xl font-bold text-zinc-400 mb-2 rotate-1" dangerouslySetInnerHTML={{ __html: ART_FESTIVAL_APP_NAME }}></h2>
-        <h1 className="text-6xl font-black text-zinc-900 leading-[0.85] tracking-tighter mb-6 relative">
-          分DECO<br/>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;mposer解者</span>
-          <span style={{ backgroundColor: THEME_COLORS.Brown }} className="absolute -right-4 -top-4 w-12 h-12 rounded-full mix-blend-multiply opacity-80"></span>
-        </h1>
-        
+        <img
+          src="decomposer.png"
+          alt="DECOmposer"
+          className="w-full max-w-md object-contain mb-6"
+          loading="eager"
+        />
+
         <div className="w-full h-0.5 bg-zinc-900 mb-6"></div>
 
         <p className="text-zinc-600 font-serif font-medium text-lg mb-8 leading-tight">

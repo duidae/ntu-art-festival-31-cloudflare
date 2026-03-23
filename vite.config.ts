@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [
     react(),
     tailwindcss(),
-    cloudflare(),
+    //cloudflare(),
   ],
 	resolve: {
     alias: {

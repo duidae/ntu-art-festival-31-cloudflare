@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MissionView } from '@/react-app/scene/MissionView';
+import { THEME_COLORS } from '../constants';
 
 interface SubMissionProps {
   storyPath: string;
@@ -29,12 +30,12 @@ export const SubMission = (props: SubMissionProps) => {
         <div className="inline-block">
           <div className="relative w-16 h-16 mx-auto">
             <div className="absolute inset-0 border-2 border-zinc-300 rounded-none animate-pulse"></div>
-            <div className="absolute inset-2 border-2 border-[#4dff88] animate-spin-slow"></div>
+            <div style={{ borderColor: THEME_COLORS.Green }} className="absolute inset-2 border-2 animate-spin-slow"></div>
           </div>
         </div>
         <div className="font-mono text-lg text-zinc-500 space-y-2">
           <p>正在讀取檔案...</p>
-          <p className="text-[#4dff88] font-bold animate-pulse-slow">資料載入中</p>
+          <p style={{ color: THEME_COLORS.Green }} className="font-bold animate-pulse-slow">資料載入中</p>
         </div>
       </div>
     </div>

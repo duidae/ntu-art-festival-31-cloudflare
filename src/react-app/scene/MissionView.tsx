@@ -59,6 +59,7 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
             <div key={`section-${index}`}>
               {getYouTubeVideoId(item.url) ? 
                 <iframe
+                  style={{ minHeight: 250 }}
                   width="100%"
                   height="100%"
                   src={`https://www.youtube.com/embed/${getYouTubeVideoId(item.url)}`}

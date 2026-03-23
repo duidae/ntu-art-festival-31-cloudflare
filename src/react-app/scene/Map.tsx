@@ -372,31 +372,31 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   const mapToolbarJSX = (
-    <div className="absolute bottom-8 left-4 right-4 h-16 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
+    <div className="absolute bottom-8 left-4 right-4 h-20 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
       <button className="flex flex-col items-center gap-1 text-zinc-900 group cursor-pointer" onClick={panToMissionsCenter}>
         <div style={{ background: THEME_COLORS.Cream }} className="p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
           <MapPin size={18} />
         </div>
-        <span className="text-[10px] font-bold tracking-tighter">地圖</span>
+        <span className="text-[10px] font-bold tracking-tighter">地圖 Map</span>
       </button>
       <button disabled={!!geoError} className={`flex flex-col items-center gap-1 text-zinc-900 group relative ${geoError? 'cursor-not-allowed' : 'cursor-pointer'}`} onClick={panToUserLocation}>
         <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
            <LocateFixed size={18} />
         </div>
-        <span className="text-[10px] font-bold tracking-tighter">定位</span>
+        <span className="text-[10px] font-bold tracking-tighter">定位 Locate</span>
       </button>
       <button className={`flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer`} onClick={() => {setScene({ scene: SCENES.SUB_MISSION, story: "/story/about-art-festival.json" });}}>
         <div style={{ backgroundColor: THEME_COLORS.Cream }} className="border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
            <img style={{width: 28, height: 28}} src={ART_FESTIVAL_LOGO} alt="ntu art festival" />
         </div>
-        <span className="text-[10px] font-bold tracking-tighter">關於</span>
+        <span className="text-[10px] font-bold tracking-tighter">關於 About</span>
       </button>
       {isArtFestivalActive && <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
         <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#4dff88] rounded-full border border-black z-10"></div>
         <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
            <Scan size={18} />
         </div>
-        <span className="text-[10px] font-bold tracking-tighter">掃描</span>
+        <span className="text-[10px] font-bold tracking-tighter">掃描 Scan</span>
       </button>}
     </div>
   );

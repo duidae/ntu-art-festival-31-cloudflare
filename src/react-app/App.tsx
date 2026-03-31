@@ -27,7 +27,7 @@ export const App = () => {
       {currentScene.scene === SCENES.INTRO && <Intro onChangeScene={backToMap} />}
       {currentScene.scene === SCENES.MAP && <MissionMap setScene={setCurrentScene} progress={progress} />}
       {currentScene.scene === SCENES.MAIN_MISSION && <MainMission setProgress={setProgress} onChangeScene={backToMap} />}
-      {(currentScene.scene === SCENES.SUB_MISSION || currentScene.scene === SCENES.OTHER_MISSION) && <SubMission storyPath={currentScene.story} onChangeScene={backToMap} />}
+      {(currentScene.scene === SCENES.SUB_MISSION || currentScene.scene === SCENES.OTHER_MISSION || currentScene.scene === SCENES.TREASURE_HUNT_MISSIONS) && <SubMission storyPath={currentScene.story} onChangeScene={backToMap} />}
       {currentScene.scene === SCENES.FINALE && <Final onChangeScene={backToMap} />}
     </AppLayout>
   );

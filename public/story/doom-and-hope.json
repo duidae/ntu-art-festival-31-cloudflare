@@ -1,0 +1,23 @@
+{
+  "id": "2",
+  "title": "關於本屆藝術季",
+  "contents": [{
+    "type": "image",
+    "url": "/art-festival-poster.webp"
+  }, {
+    "type": "paragraph",
+    "text": "𓅩 𓅪 𓅫 𓅭 𓅮 𓅯 𓅮 𓅭 𓅫 𓅪 𓅩"
+  }, {
+    "type": "paragraph",
+    "text": "Decomposer為生物學名詞「分解者」，不只是生命最終站的處理者，更是協助有機體回到自然循環、使生命得以延續的角色；同時，分解者也能調節微棲地的物理與化學因子，默默改變著溫度、氣體組成與養分循環，形塑生命得以延續的條件。而這世界上有一群人，在面對隕落的生命時，選擇以理性、科學的方式紀錄生命的故事與痕跡，讓生命的價值得以延續。"
+  }, {
+    "type": "paragraph",
+    "text": "本屆藝術季以發生在臺大周遭的公民科學與生態議題出發，以藝術的眼光重新詮釋這些生命故事。藉由分解，我們能夠剖析故事；透過分解，我們得以改變環境；因為分解，生命價值得以延續。"
+  }, {
+    "type": "paragraph",
+    "text": "“Decomposer” is a biological term referring to organisms that break down deceased plants and animals. They’re not merely the processors of the final stage of life; they also help return organic matter to the natural cycle, allowing life to continue. At the same time, decomposers can regulate the physical and chemical factors of microhabitats, silently altering temperature, gas composition, and nutrient cycles, thereby shaping the conditions that sustain life. In this world, there is also a group of people who, when encountering fallen life, choose to document its stories and traces through rational and scientific methods, allowing the value of life to continue."
+  }, {
+    "type": "paragraph",
+    "text": "This year, the NTU Art Festival begins with citizen science and ecological issues emerging around National Taiwan University, reinterpreting these stories of life through the lens of art. Through decomposition, we can analyze stories; Through decomposition, we can change the environment. Because of decomposition, the value of life continues."
+  }]
+}

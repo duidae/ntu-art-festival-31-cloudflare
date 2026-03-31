@@ -1,5 +1,5 @@
 import { mainMissions, subMissions } from './projectMissions';
-import { TREASURE_HUNT_MISSIONS, otherInstallations } from './sideMissions';
+import { TREASURE_HUNT_MISSIONS, EXHIBITIONS } from './sideMissions';
 
 export const CATFISH_3D_MODEL = 'mission-1-catfish.glb';
 export const CATFISH_3D_MODEL_COVER = 'mission-1-catfish.png';
@@ -18,10 +18,10 @@ export const ART_FESTIVAL_END_DATE = '20260531';
 export const MAP_ROUTE_PATH = '/?noIntro=true';
 
 export const MISSIONS = {
-  Main: mainMissions,
+  Main: [], // mainMissions,
   Sub: subMissions,
   Pre: TREASURE_HUNT_MISSIONS, // treasure hunter missions
-  Others: otherInstallations, // other installations
+  Others: EXHIBITIONS, // other installations
 };
 
 export const THEME_COLORS = {

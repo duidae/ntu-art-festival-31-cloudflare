@@ -108,6 +108,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
   const isArtFestivalActive = import.meta.env.VITE_ART_FESTIVAL_ENABLED === "true";// todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
   
+  /*
   const mainMissions = [
     {
       id: SCENES.MAIN_MISSION,
@@ -118,6 +119,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       done: progress.m1
     }
   ];
+  */
 
   const subMissions = MISSIONS.Sub.map(m => {
     return {
@@ -135,7 +137,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const preMissions = MISSIONS.Pre?.map((m, index) => {
     const color = THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length];
     return {
-      id: SCENES.OTHER_MISSION,
+      id: SCENES.TREASURE_HUNT_MISSIONS,
       isActive: isTreasureHuntActive,
       pos: m.coordinates as L.LatLngExpression,
       title: m.title,
@@ -293,7 +295,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     userMarkerRef.current = marker;
     addMissionMarkers(map, preMissions);
     addMissionMarkers(map, otherMissions);
-    addMissionMarkers(map, mainMissions);
+    // addMissionMarkers(map, mainMissions);
     addMissionMarkers(map, subMissions);
   };
 
@@ -385,19 +387,20 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
         <span className="text-[10px] font-bold tracking-tighter">定位 Locate</span>
       </button>
+      {isArtFestivalActive &&
+        <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
+          <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
+            <Scan size={18} />
+          </div>
+          <span className="text-[10px] font-bold tracking-tighter">掃描 Scan</span>
+        </button>
+      }
       <button className={`flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer`} onClick={() => {setScene({ scene: SCENES.SUB_MISSION, story: "/story/about-art-festival.json" });}}>
         <div style={{ backgroundColor: THEME_COLORS.Cream }} className="border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
            <img style={{width: 28, height: 28}} src={ART_FESTIVAL_LOGO} alt="ntu art festival" />
         </div>
         <span className="text-[10px] font-bold tracking-tighter">關於 About</span>
       </button>
-      {isArtFestivalActive && <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#4dff88] rounded-full border border-black z-10"></div>
-        <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
-           <Scan size={18} />
-        </div>
-        <span className="text-[10px] font-bold tracking-tighter">掃描 Scan</span>
-      </button>}
     </div>
   );
 

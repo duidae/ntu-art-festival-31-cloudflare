@@ -6,7 +6,7 @@ import { ART_FESTIVAL_TREASURE_HUNT_PATHS } from "@/react-app/constants/sideMiss
 import { App } from "@/react-app/App";
 import { AnalyticsListener } from "@/react-app/AnalyticsListener";
 import { ErrorBoundary } from "@/react-app/components/ErrorBoundary";
-import { Login, TreasureHunt } from "@/react-app/scene";
+import { Login, TreasureHunt, Exhibition } from "@/react-app/scene";
 import "./firebase";
 import "./index.css";
 
@@ -17,7 +17,7 @@ const RootLayout = () => (
   </>
 );
 
-const treasureHuntLoader = async ({ params }: LoaderFunctionArgs) => {
+const branchLoader = async ({ params }: LoaderFunctionArgs) => {
   const { siteCode } = params;
 
   if (!siteCode || !ART_FESTIVAL_TREASURE_HUNT_PATHS.includes(siteCode)) {
@@ -45,7 +45,13 @@ const router = createBrowserRouter([
         path: "/treasure-hunt/:siteCode",
         element: <TreasureHunt />,
         errorElement: <ErrorBoundary />,
-		    loader: treasureHuntLoader,
+		    loader: branchLoader,
+      },
+      {
+        path: "/exhibition/:siteCode",
+        element: <Exhibition />,
+        errorElement: <ErrorBoundary />,
+		    loader: branchLoader,
       },
     ],
   },

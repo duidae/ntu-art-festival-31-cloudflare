@@ -17,7 +17,12 @@ export const TREASURE_HUNT_MISSIONS = [{
 }];
 export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => m.siteCode);
 
-export const otherInstallations = [{
+export const EXHIBITIONS = [{
+  title: '困境與希望',
+  coordinates: [25.019462, 121.537305],
+  story: '/story/doom-and-hope.json',
+  img: '/mission-1-catfish.png',
+}, {
   title: '奇美拉',
   coordinates: [25.01746905336982, 121.5402407988009],
   story: '/story/liu-gong-jun-pool.json',

@@ -31,7 +31,7 @@ export const Exhibition = () => {
         try {
           await updateUser(user.uid, {
             visitedSites: {
-              [`/exhibition/${siteCode}`]: true
+              [`/exhibitions/${siteCode}`]: true
             }
           });
         } catch (err) {

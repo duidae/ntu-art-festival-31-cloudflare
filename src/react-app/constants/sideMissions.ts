@@ -20,6 +20,7 @@ export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => 
 export const EXHIBITIONS = [{
   title: '困境與希望',
   coordinates: [25.019462, 121.537305],
+  siteCode: 'yhfsw0',
   story: '/story/doom-and-hope.json',
   img: '/mission-1-catfish.png',
 }, {

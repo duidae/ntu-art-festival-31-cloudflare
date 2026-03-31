@@ -48,7 +48,7 @@ const router = createBrowserRouter([
 		    loader: branchLoader,
       },
       {
-        path: "/exhibition/:siteCode",
+        path: "/exhibitions/:siteCode",
         element: <Exhibition />,
         errorElement: <ErrorBoundary />,
 		    loader: branchLoader,

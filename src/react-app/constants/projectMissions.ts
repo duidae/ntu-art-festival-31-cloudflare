@@ -44,7 +44,7 @@ export const subMissions = [{
   title: '瑠公圳水源池',
   coordinates: [25.016141649719067, 121.53976500223325],
   gmap: 'https://maps.app.goo.gl/tf4FkGwVxXDzvyK37',
-  img: '/submission/tai1.webp', // TODO: change photo
+  img: '/submission/liu-gong-jun-pool.webp',
   story: '/story/liu-gong-jun-pool.json',
 }, {
   title: '水工所神秘尼斯湖',
@@ -75,18 +75,18 @@ export const subMissions = [{
 }, {
   title: '綜合教學館水圳意象',
   coordinates: [25.018242, 121.539151],
-  img: '/submission/tai1.webp', // TODO: change photo
-  story: '/story/NTUST-turtle-pool.json',
+  img: '/submission/lecture-building-pool.webp',
+  story: '/story/lecture-building-pool.json',
 }, {
   title: '志鴻館水圳意象(草溝)',
   coordinates: [25.018947, 121.539132],
-  img: '/submission/tai1.webp', // TODO: change photo
-  story: '/story/NTUST-turtle-pool.json',
+  img: '/submission/grass-trench.webp',
+  story: '/story/grass-trench.json',
 }, {
   title: '新生南路特一號幹線(堀川)水渠意象重現',
   coordinates: [25.02039, 121.5343171],
-  img: '/submission/tai1.webp', // TODO: change photo
-  story: '/story/xinsheng-south-road.json',
+  img: '/submission/xinsheng-recreate.webp',
+  story: '/story/xinsheng-recreate.json',
 }, {
   title: '台一新生特一號大排木棧橋舊照(二樓)',
   coordinates: [25.019129385103625, 121.53363154698376],

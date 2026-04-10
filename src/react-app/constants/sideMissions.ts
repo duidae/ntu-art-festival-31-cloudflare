@@ -24,13 +24,43 @@ export const EXHIBITIONS = [{
   story: '/story/doom-and-hope.json',
   img: '/mission-1-catfish.png',
 }, {
-  title: '奇美拉',
-  coordinates: [25.01746905336982, 121.5402407988009],
+  title: '《一個大事件》- 殞落',
+  coordinates: [25.017403555754996, 121.53932810436642],
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }, {
-  title: '碰撞',
-  coordinates: [25.01806026511564, 121.54020423321757],
+  title: '《一個大事件》- 生命的定格',
+  coordinates: [25.014667448157486, 121.53835455723987],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《一個大事件》- 藝術季全貌',
+  coordinates: [25.01819594397589, 121.54023135369349],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《地下網絡｜視線之外》- 邊緣顯影',
+  coordinates: [25.01819594397589, 121.54023135369350],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《地下網絡｜視線之外》- 菌落繁生',
+  coordinates: [25.01819594397589, 121.54023135369351],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.01844002771249, 121.53982716617925],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.018698186637938, 121.54304654335996],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.019214372825658, 121.54357933049583],
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }];

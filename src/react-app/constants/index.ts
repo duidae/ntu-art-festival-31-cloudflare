@@ -1,4 +1,4 @@
-import { mainMissions, subMissions } from './projectMissions';
+import { subMissions } from './projectMissions';
 import { TREASURE_HUNT_MISSIONS, EXHIBITIONS } from './sideMissions';
 
 export const CATFISH_3D_MODEL = 'mission-1-catfish.glb';

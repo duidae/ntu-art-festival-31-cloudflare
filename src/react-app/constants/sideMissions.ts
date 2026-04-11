@@ -18,7 +18,7 @@ export const TREASURE_HUNT_MISSIONS = [{
 export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => m.siteCode);
 
 export const EXHIBITIONS = [{
-  title: '困境與希望',
+  title: '《城市幽靈》 - 困境與希望',
   coordinates: [25.019462, 121.537305],
   siteCode: 'yhfsw0',
   story: '/story/doom-and-hope.json',
@@ -61,6 +61,51 @@ export const EXHIBITIONS = [{
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.019214372825658, 121.54357933049583],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.01555043038954, 121.5387960892844],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.01753035787235, 121.53528464022149],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.017836707554988, 121.53376485638454],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.018816782172234, 121.53623648478545],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.020211894384026, 121.5423993757026],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《臺大窗殺紀念碑》',
+  coordinates: [25.018896686313127, 121.53915337057441],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《傷痕與新生》',
+  coordinates: [25.01888758398658, 121.5370690642994],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《灰帶生靈——犬貓踏過的森林》',
+  coordinates: [25.013193860475027, 121.53747836713949],
+  story: '/story/liu-gong-jun-pool.json',
+  img: '/art-festival-logo.png',
+}, {
+  title: '《人類世錯位的生物衝突》',
+  coordinates: [25.01774288897386, 121.53992561559586],
   story: '/story/liu-gong-jun-pool.json',
   img: '/art-festival-logo.png',
 }];

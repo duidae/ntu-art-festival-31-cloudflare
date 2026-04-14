@@ -273,8 +273,27 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         const geoLayer = L.geoJSON(data, {
           filter: (f: Feature) => f.geometry?.type !== "Point"
         }).addTo(map);
+
+        const subMissionsGroup = L.featureGroup().addTo(map);
+        /*
+        const preMissionsGroup = L.featureGroup().addTo(map);
+        const otherMissionsGroup = L.featureGroup().addTo(map);
+        */
+
+        addMissionMarkers(map, subMissions, subMissionsGroup);
+        /*
+        addMissionMarkers(map, preMissions, preMissionsGroup);
+        addMissionMarkers(map, otherMissions, otherMissionsGroup);
+        */
+
+        // Create unified layer control
         L.control.layers({}, {
-          '💧1932台北舊水路': geoLayer
+          '💧1932台北舊水路': geoLayer,
+          '🐟 水路踏查': subMissionsGroup,
+          /*
+          '🗺️ 寶藏獵人 Pre-Missions': preMissionsGroup,
+          '📍 其他 Others': otherMissionsGroup,
+          */
         }, {
           collapsed: false
         }).addTo(map);
@@ -296,12 +315,13 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     addMissionMarkers(map, preMissions);
     addMissionMarkers(map, otherMissions);
     // addMissionMarkers(map, mainMissions);
-    addMissionMarkers(map, subMissions);
+    // addMissionMarkers(map, subMissions);
   };
 
   const addMissionMarkers = (
     map: L.Map,
     missions: any[],
+    group?: L.FeatureGroup
   ) => {
     missions.forEach((m) => {
       const popupContent = document.createElement('div');
@@ -312,7 +332,9 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       const marker = L.marker(m.pos, {
         icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || THEME_COLORS.DarkGray),
         interactive: true, // 🔥 force interaction
-      }).addTo(map);
+      });
+
+      marker.addTo(group ? group : map);
 
       const iconHtml = m.done
         ? `<div style="background: ${THEME_COLORS.MediumGray};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`

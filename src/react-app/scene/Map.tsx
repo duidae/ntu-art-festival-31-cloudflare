@@ -272,9 +272,9 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       .then(data => {
         const geoLayer = L.geoJSON(data, {
           filter: (f: Feature) => f.geometry?.type !== "Point"
-        }).addTo(map);
+        });
 
-        const subMissionsGroup = L.featureGroup().addTo(map);
+        const subMissionsGroup = L.featureGroup();
         /*
         const preMissionsGroup = L.featureGroup().addTo(map);
         const otherMissionsGroup = L.featureGroup().addTo(map);

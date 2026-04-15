@@ -36,6 +36,11 @@ const SIZE = {
   SMALL: 18,
 };
 
+enum Shape {
+  CIRCLE ='circle',
+  SQUARE = 'square'
+};
+
 export const MissionMap = ({ setScene, progress }: MapProps) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -207,8 +212,15 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     }
   };
 
-  const createMarkerIcon = (isDone: boolean, scene: SCENES, isActive: boolean = true, color: string = DEFAULT_COLOR) => {
+  const createMarkerIcon = (
+    isDone: boolean,
+    scene: SCENES,
+    isActive: boolean = true,
+    color: string = DEFAULT_COLOR,
+    shape: Shape = Shape.SQUARE
+  ) => {
     const size = (scene === SCENES.MAIN_MISSION || scene === SCENES.OTHER_MISSION) ? SIZE.LARGE : (scene === SCENES.SUB_MISSION ? SIZE.SMALL : SIZE.MEDIUM);
+    const borderRadius = shape === Shape.CIRCLE ? '50%' : '0%';
     const innerContent = isDone
       ? `<div style="
           width: 12px;
@@ -235,6 +247,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
           height: ${size}px;
           background: ${!isActive ? 'transparent' : (isDone ? color : DEFAULT_COLOR)};
           border: 2px solid #18181b;
+          border-radius: ${borderRadius};
           display: flex;
           align-items: center;
           justify-content: center;
@@ -280,7 +293,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         const otherMissionsGroup = L.featureGroup().addTo(map);
         */
 
-        addMissionMarkers(map, subMissions, subMissionsGroup);
+        addMissionMarkers(map, subMissions, subMissionsGroup, Shape.SQUARE);
         /*
         addMissionMarkers(map, preMissions, preMissionsGroup);
         addMissionMarkers(map, otherMissions, otherMissionsGroup);
@@ -312,7 +325,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       })
     }).addTo(map);
     userMarkerRef.current = marker;
-    addMissionMarkers(map, preMissions);
+    addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
     addMissionMarkers(map, otherMissions);
     // addMissionMarkers(map, mainMissions);
     // addMissionMarkers(map, subMissions);
@@ -321,7 +334,8 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const addMissionMarkers = (
     map: L.Map,
     missions: any[],
-    group?: L.FeatureGroup
+    group?: L.FeatureGroup,
+    shape?: Shape
   ) => {
     missions.forEach((m) => {
       const popupContent = document.createElement('div');
@@ -330,11 +344,11 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         'p-4 bg-white font-mono flex flex-col items-center';
 
       const marker = L.marker(m.pos, {
-        icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || THEME_COLORS.DarkGray),
+        icon: createMarkerIcon(m.done, m.id, m.isActive, m.color || THEME_COLORS.DarkGray, shape ?? Shape.SQUARE),
         interactive: true, // 🔥 force interaction
       });
 
-      marker.addTo(group ? group : map);
+      marker.addTo(group ?? map);
 
       const iconHtml = m.done
         ? `<div style="background: ${THEME_COLORS.MediumGray};" class="w-36 h-36 mb-2 flex items-center justify-center border-2 border-zinc-900 shadow-[2px_2px_0px_0px_#000] overflow-hidden">${m.img}</div>`

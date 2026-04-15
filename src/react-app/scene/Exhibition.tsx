@@ -84,7 +84,7 @@ export const Exhibition = () => {
 
   const defaultJSX = (
     <div className="flex flex-col items-center justify-center p-6 h-full">
-      <h1 className="text-2xl font-bold mb-4">{mission?.title || '寶藏獵人'}</h1>
+      <h1 className="text-2xl font-bold mb-4">{mission?.title || '作品'}</h1>
       <p className="text-center mb-6">Site Code: <span className="font-mono font-bold">{siteCode}</span></p>
       <div className="text-center text-sm text-gray-600 mb-8">
         <p>探索並發現此地點的故事和線索。</p>

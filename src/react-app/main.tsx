@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, LoaderFunctionArgs, Outlet } from "react-router-dom";
 import { AuthProvider } from "@/react-app/AuthContext";
-import { ART_FESTIVAL_TREASURE_HUNT_PATHS } from "@/react-app/constants/sideMissions";
+import { ART_FESTIVAL_TREASURE_HUNT_PATHS, ART_FESTIVAL_EXHIBITION_PATHS } from "@/react-app/constants/sideMissions";
 import { App } from "@/react-app/App";
 import { AnalyticsListener } from "@/react-app/AnalyticsListener";
 import { ErrorBoundary } from "@/react-app/components/ErrorBoundary";
@@ -20,8 +20,8 @@ const RootLayout = () => (
 const branchLoader = async ({ params }: LoaderFunctionArgs) => {
   const { siteCode } = params;
 
-  if (!siteCode || !ART_FESTIVAL_TREASURE_HUNT_PATHS.includes(siteCode)) {
-    console.warn(`Invalid treasure hunt siteCode: ${siteCode}`);
+  if (!siteCode || (!ART_FESTIVAL_TREASURE_HUNT_PATHS.includes(siteCode) && !ART_FESTIVAL_EXHIBITION_PATHS.includes(siteCode))) {
+    console.warn(`Invalid siteCode: ${siteCode}`, ART_FESTIVAL_EXHIBITION_PATHS, !ART_FESTIVAL_EXHIBITION_PATHS.includes(siteCode ?? ''));
     throw new Response("Not Found", { status: 404 });
   }
 

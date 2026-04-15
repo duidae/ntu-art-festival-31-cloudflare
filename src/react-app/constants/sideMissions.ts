@@ -26,86 +26,105 @@ export const EXHIBITIONS = [{
 }, {
   title: '《一個大事件》- 殞落',
   coordinates: [25.017403555754996, 121.53932810436642],
+  siteCode: 'xjrmq4',
   story: '/story/exhibition-a-big-event-fallen.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《一個大事件》- 生命的定格',
   coordinates: [25.014667448157486, 121.53835455723987],
+  siteCode: 'bqznt7',
   story: '/story/exhibition-a-big-event-life.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《一個大事件》- 藝術季全貌',
   coordinates: [25.01819594397589, 121.54023135369349],
+  siteCode: 'kldpw2',
   story: '/story/exhibition-a-big-event-festival.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《地下網絡｜視線之外》- 邊緣顯影',
   coordinates: [25.01819594397589, 121.54023135369350],
+  siteCode: 'vhsya9',
   story: '/story/exhibition-underground-network-edge.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《地下網絡｜視線之外》- 菌落繁生',
   coordinates: [25.01819594397589, 121.54023135369351],
+  siteCode: 'tgrce5',
   story: '/story/exhibition-underground-network-swarm.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.01844002771249, 121.53982716617925],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.018698186637938, 121.54304654335996],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.019214372825658, 121.54357933049583],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.01555043038954, 121.5387960892844],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.01753035787235, 121.53528464022149],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.017836707554988, 121.53376485638454],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.018816782172234, 121.53623648478545],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.020211894384026, 121.5423993757026],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《臺大窗殺紀念碑》',
   coordinates: [25.018896686313127, 121.53915337057441],
+  siteCode: 'mnbxo1',
   story: '/story/exhibition-window-killing-memorial.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《傷痕與新生》',
   coordinates: [25.01888758398658, 121.5370690642994],
+  siteCode: 'qplsz8',
   story: '/story/exhibition-wound-and-rebirth.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《灰帶生靈——犬貓踏過的森林》',
   coordinates: [25.013193860475027, 121.53747836713949],
+  siteCode: 'dkwru3',
   story: '/story/exhibition-gray-spirit-forest.json',
   img: '/art-festival-logo.png',
 }, {
   title: '《人類世錯位的生物衝突》',
   coordinates: [25.01774288897386, 121.53992561559586],
+  siteCode: 'fyhta6',
   story: '/story/exhibition-human-epoch-bioconflict.json',
   img: '/art-festival-logo.png',
 }];
+
+export const ART_FESTIVAL_EXHIBITION_PATHS = EXHIBITIONS.map(m => m.siteCode);

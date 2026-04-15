@@ -22,7 +22,7 @@ export const EXHIBITIONS = [{
   coordinates: [25.019462, 121.537305],
   siteCode: 'yhfsw0',
   story: '/story/exhibition-doom-and-hope.json',
-  img: '/mission-1-catfish.png',
+  img: '/art-festival-logo.png',
 }, {
   title: '《一個大事件》- 殞落',
   coordinates: [25.017403555754996, 121.53932810436642],

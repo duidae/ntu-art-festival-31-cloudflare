@@ -79,7 +79,7 @@ export const subMissions = [{
   story: '/story/lecture-building-pool.json',
 }, {
   title: '志鴻館水圳意象(草溝)',
-  coordinates: [25.018947, 121.539132],
+  coordinates: [25.019000626648225, 121.53919647142536],
   img: '/submission/grass-trench.webp',
   story: '/story/grass-trench.json',
 }, {

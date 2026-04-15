@@ -59,7 +59,7 @@ export const subMissions = [{
 }, {
   title: '瑠公綠廊銅魚',
   coordinates: [25.042568, 121.544556],
-  img: '/submission/tai1.webp', // TODO: change photo
+  img: '/submission/liu-gong-green-aisle-fish.webp',
   story: '/story/liu-gong-green-aisle-fish.json',
 }, {
   title: '師範大學誠溪',

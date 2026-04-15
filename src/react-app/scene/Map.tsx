@@ -170,6 +170,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       img: `<img src="${m.img || ART_FESTIVAL_LOGO}" width="144" height="144" loading="lazy" style="width:100%; height:100%; display:block; object-fit:cover;" />`,
       story: m.story || "",
       done: visitedSites?.[`/exhibitions/${m.siteCode}`] === true,
+      color: m.color
     };
   }) ?? [];
   // TODO: Remove missions after art festival

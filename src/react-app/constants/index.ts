@@ -32,6 +32,7 @@ export const THEME_COLORS = {
   LightGray: '#e0e0e1',
   MediumGray: '#d1d1d1',
   DarkGray: '#767575',
+  Black: '#000000',
 };
 export const THEME_COLOR_VALUES = [THEME_COLORS.Green, THEME_COLORS.Red, THEME_COLORS.Brown];
 export const DEFAULT_COLOR = THEME_COLORS.DarkGray;

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import L, { CircleMarker } from 'leaflet';
 import { Feature } from "geojson";
 import { Waves, CircleQuestionMark, MapPin, Scan, LocateFixed } from 'lucide-react';
@@ -56,6 +56,16 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const [cameraActive, setCameraActive] = useState(false);
   const [visitedSites, setVisitedSites] = useState<Record<string, boolean> | null>(null);
+
+  const visitedSiteCount = useMemo(() => {
+    if (!visitedSites) return 0;
+    return Object.entries(visitedSites).reduce((count, [key, done]) => {
+      if (done === true && (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/'))) {
+        return count + 1;
+      }
+      return count;
+    }, 0);
+  }, [visitedSites]);
 
   useEffect(() => {
     requestGeolocation();
@@ -413,8 +423,13 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const mapToolbarJSX = (
     <div className="absolute bottom-8 left-4 right-4 h-20 bg-white border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] flex items-center justify-around px-2 z-[100]">
       <button className="flex flex-col items-center gap-1 text-zinc-900 group cursor-pointer" onClick={panToMissionsCenter}>
-        <div style={{ background: THEME_COLORS.Cream }} className="p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1">
+        <div className="relative p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1" style={{ background: THEME_COLORS.Cream }}>
           <MapPin size={18} />
+          {visitedSiteCount > 0 && (
+            <span style={{ backgroundColor: THEME_COLORS.Green }} className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1 text-[9px] font-black text-white">
+              {visitedSiteCount}
+            </span>
+          )}
         </div>
         <span className="text-[10px] font-bold tracking-tighter">地圖 Map</span>
       </button>

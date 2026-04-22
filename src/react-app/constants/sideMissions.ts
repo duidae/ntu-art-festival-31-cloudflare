@@ -27,22 +27,22 @@ export const TREASURE_HUNT_MISSIONS = [{
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: `${treasureHunterDate} 市集挖寶1`,
-  siteCode: '',
+  siteCode: 'qlptz4',
   coordinates: [25.017348950047893, 121.53873145254678],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: `${treasureHunterDate} 市集挖寶2`,
-  siteCode: '',
+  siteCode: 'hsnrw8',
   coordinates: [25.017348949759356, 121.5385001541138],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: `${treasureHunterDate} 市集挖寶3`,
-  siteCode: '',
+  siteCode: 'bdkya2',
   coordinates: [25.0173489498241, 121.53906331549759],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: `${treasureHunterDate} 市集挖寶4`,
-  siteCode: '',
+  siteCode: 'vxmce9',
   coordinates: [25.017348949952968, 121.53862083155657],
   story: '/story/treasure-hunt-mission-3.json',
 }];

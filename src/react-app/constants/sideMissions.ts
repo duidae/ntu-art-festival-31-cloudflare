@@ -9,39 +9,38 @@ const THEME_COLORS = {
   Black: '#000000',
 };
 
-const treasureHunterDate = '2026藝術週';
 export const TREASURE_HUNT_MISSIONS = [{
-  title: `${treasureHunterDate} 尋寶任務1`,
+  title: '尋寶任務1',
   siteCode: 'kzqpt9',
   coordinates: [25.0177262, 121.5359260],
   story: '/story/treasure-hunt-mission-1.json',
 }, {
-  title: `${treasureHunterDate} 尋寶任務2`,
+  title: '尋寶任務2',
   siteCode: 'mrvxa7',
   coordinates: [25.0173297, 121.5390890],
   story: '/story/treasure-hunt-mission-2.json',
 }, {
-  title: `${treasureHunterDate} 尋寶任務3`,
+  title: '尋寶任務3',
   siteCode: 'gthui5',
   coordinates: [25.0163250, 121.5400810],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
-  title: `${treasureHunterDate} 市集挖寶1`,
+  title: '市集挖寶1',
   siteCode: 'qlptz4',
   coordinates: [25.017348950047893, 121.53873145254678],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
-  title: `${treasureHunterDate} 市集挖寶2`,
+  title: '市集挖寶2',
   siteCode: 'hsnrw8',
   coordinates: [25.017348949759356, 121.5385001541138],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
-  title: `${treasureHunterDate} 市集挖寶3`,
+  title: '市集挖寶3',
   siteCode: 'bdkya2',
   coordinates: [25.0173489498241, 121.53906331549759],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
-  title: `${treasureHunterDate} 市集挖寶4`,
+  title: '市集挖寶4',
   siteCode: 'vxmce9',
   coordinates: [25.017348949952968, 121.53862083155657],
   story: '/story/treasure-hunt-mission-3.json',

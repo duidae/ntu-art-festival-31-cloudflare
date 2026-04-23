@@ -1,13 +1,68 @@
+import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/react-app/components/Button';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
+import Glide from '@glidejs/glide';
+import '@glidejs/glide/dist/css/glide.core.min.css';
+import '@glidejs/glide/dist/css/glide.theme.min.css';
 import { SanitizeHref } from '@/react-app/utils';
+
+type GlideInstance = InstanceType<typeof Glide>;
 import { THEME_COLORS } from '@/react-app/constants';
 
 const getYouTubeVideoId = (url: string) => {
   const youtubeRegex = /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = url.match(youtubeRegex);
   return match ? match[1] : null;
+};
+
+const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const glideInstanceRef = useRef<GlideInstance | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const glide = new Glide(containerRef.current, {
+      type: 'carousel',
+      perView: 1,
+      focusAt: 'center',
+      gap: 0,
+      hoverpause: true,
+    });
+
+    glide.mount();
+    glideInstanceRef.current = glide;
+
+    return () => {
+      glideInstanceRef.current?.destroy();
+      glideInstanceRef.current = null;
+    };
+  }, [images]);
+
+  return (
+    <div ref={containerRef} className="glide mb-4 w-full rounded border border-zinc-200 bg-white">
+      <div className="glide__track" data-glide-el="track">
+        <ul className="glide__slides">
+          {images.map((src, idx) => (
+            <li key={`glide-slide-${idx}`} className="glide__slide">
+              <img
+                src={SanitizeHref(src)}
+                alt={alt || `slide-${idx + 1}`}
+                loading="lazy"
+                className="w-full h-auto object-cover"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="glide__bullets mt-3 flex justify-center gap-2" data-glide-el="controls[nav]">
+        {images.map((_, idx) => (
+          <button key={`glide-bullet-${idx}`} className="glide__bullet" data-glide-dir={`=${idx}`} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 interface MissionViewProps {
@@ -90,19 +145,8 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
           );
         case 'image-slider':
           return (
-            <div key={`section-${index}`} className="mb-4 w-full overflow-hidden rounded border border-zinc-200 bg-white">
-              <div className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-pan-x">
-                {Array.isArray(item.images) && item.images.map((src: string, idx: number) => (
-                  <div key={`slider-${idx}`} className="min-w-full snap-center">
-                    <img
-                      src={SanitizeHref(src)}
-                      alt={item.alt || `slide-${idx + 1}`}
-                      loading="lazy"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+            <div key={`section-${index}`}>
+              <GlideImageSlider images={Array.isArray(item.images) ? item.images : []} alt={item.alt} />
               {item.ref && renderRef(item.ref)}
             </div>
           );

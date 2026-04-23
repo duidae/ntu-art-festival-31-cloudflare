@@ -8,6 +8,18 @@
     "type": "paragraph",
     "text": ""
   }, {
+    "type": "image-slider",
+    "images": [
+      "/submission/river-engineering-robot-1.webp",
+      "/submission/river-engineering-robot-2.webp"
+    ]
+  }, {
+    "type": "image-slider",
+    "images": [
+      "/submission/invasive-species-1.webp",
+      "/submission/invasive-species-2.webp"
+    ]
+  }, {
     "type": "paragraph",
     "text": ""
   }]

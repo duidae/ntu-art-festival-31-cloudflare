@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@google/model-viewer": "^4.1.0",
 		"@img-comparison-slider/react": "^8.0.2",
+		"@glidejs/glide": "^3.5.2",
 		"@tailwindcss/vite": "^4.1.18",
 		"firebase": "^12.9.0",
 		"hono": "4.11.10",

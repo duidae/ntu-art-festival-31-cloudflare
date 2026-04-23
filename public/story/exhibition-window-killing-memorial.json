@@ -5,6 +5,13 @@
     "type": "image",
     "url": "/art-festival-poster.webp"
   }, {
+    "type": "image-slider",
+    "images": [
+      "/art-festival-poster.webp",
+      "/art-festival-poster.webp",
+      "/art-festival-poster.webp"
+    ]
+  }, {
     "type": "paragraph",
     "text": ""
   }, {

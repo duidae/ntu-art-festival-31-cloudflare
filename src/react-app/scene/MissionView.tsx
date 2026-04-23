@@ -88,6 +88,24 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
               {item.ref && renderRef(item.ref)}
             </div>
           );
+        case 'image-slider':
+          return (
+            <div key={`section-${index}`} className="mb-4 w-full overflow-hidden rounded border border-zinc-200 bg-white">
+              <div className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-pan-x">
+                {Array.isArray(item.images) && item.images.map((src: string, idx: number) => (
+                  <div key={`slider-${idx}`} className="min-w-full snap-center">
+                    <img
+                      src={SanitizeHref(src)}
+                      alt={item.alt || `slide-${idx + 1}`}
+                      loading="lazy"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              {item.ref && renderRef(item.ref)}
+            </div>
+          );
         default:
           return null;
       }

@@ -24,7 +24,6 @@ const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) =
     if (!containerRef.current) return;
 
     const glide = new Glide(containerRef.current, {
-      type: 'carousel',
       perView: 1,
       focusAt: 'center',
       gap: 0,

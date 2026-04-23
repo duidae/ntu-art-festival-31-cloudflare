@@ -23,7 +23,7 @@ import {
 } from '@/react-app/constants';
 import { FormatLatLon } from '@/react-app/utils';
 import { useAuth } from '@/react-app/AuthContext';
-import { getUser } from '@/react-app/services/user.service';
+import { getUser, updateUser } from '@/react-app/services/user.service';
 import { useMap } from '@/react-app/MapContext';
 
 interface MapProps {
@@ -419,6 +419,33 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     });
   };
 
+  const resetVisitedSites = async () => {
+    setVisitedSites((prev) => {
+      if (!prev) return {};
+      return Object.fromEntries(
+        Object.entries(prev).map(([key, value]) => [
+          key,
+          (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/')) ? false : value,
+        ])
+      );
+    });
+
+    if (user) {
+      try {
+        await updateUser(user.uid, {
+          visitedSites: Object.fromEntries(
+            Object.entries(visitedSites || {}).map(([key, value]) => [
+              key,
+              (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/')) ? false : value,
+            ])
+          ),
+        });
+      } catch (err) {
+        console.error('Failed to reset visited sites:', err);
+      }
+    }
+  };
+
   const activateCamera = async () => {
     try {
       const stream = await navigator?.mediaDevices?.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
@@ -477,14 +504,23 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         <div className="relative overflow-hidden rounded border-2 border-zinc-900 bg-white/95 px-3 py-2 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
           <div className="absolute -top-2 left-4 h-2 w-10 rounded-full bg-[#4dff88]" />
           <div className="flex items-center gap-3">
-            <div style={{ backgroundColor: THEME_COLORS.Green }} className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-black text-zinc-900 shadow-[1px_1px_0px_0px_rgba(24,24,27,0.35)]">
-              {visitedSiteCount}
-            </div>
-            <div className="flex flex-col leading-tight">
+            <button
+              className="rounded cursor-pointer"
+              onClick={resetVisitedSites}
+            >
+              <div style={{ backgroundColor: THEME_COLORS.Green }} className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-black text-zinc-900 shadow-[1px_1px_0px_0px_rgba(24,24,27,0.35)]">
+                {visitedSiteCount}
+              </div>
+            </button>
+            <div className="flex-1 flex flex-col leading-tight">
               <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-zinc-500">Visited</span>
               <span className="text-[10px] font-black uppercase tracking-widest text-zinc-900">
                 {position ? FormatLatLon(position.lat, position.lon) : geoError || '定位中...'}
-                {geoError && <button className="cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}><CircleQuestionMark size={14}/></button>}
+                {geoError && (
+                  <button className="ml-2 cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}>
+                    <CircleQuestionMark size={14}/>
+                  </button>
+                )}
               </span>
             </div>
           </div>

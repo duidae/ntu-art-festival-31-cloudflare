@@ -24,6 +24,7 @@ import {
 import { FormatLatLon } from '@/react-app/utils';
 import { useAuth } from '@/react-app/AuthContext';
 import { getUser } from '@/react-app/services/user.service';
+import { useMap } from '@/react-app/MapContext';
 
 interface MapProps {
   setScene: (targetScene: {scene: SCENES, story: string}) => void;
@@ -48,7 +49,11 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const userCircleRef = useRef<CircleMarker | null>(null);
   const watchIdRef = useRef<number | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const geoLayerRef = useRef<L.Layer | null>(null);
+  const subMissionsGroupRef = useRef<L.FeatureGroup | null>(null);
+  const ignoreLayerEventsRef = useRef(false);
   const { user, isLoading: authLoading } = useAuth();
+  const { geoLayerVisible, setGeoLayerVisible, subMissionsVisible, setSubMissionsVisible } = useMap();
 
   const allDone = progress.m1 && progress.m2 && progress.m3;
   const [position, setPosition] = useState<{lat: number; lon: number; accuracy?: number} | null>(null);
@@ -83,6 +88,9 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         navigator.geolocation.clearWatch(watchIdRef.current);
       }
       if (mapInstanceRef.current) {
+        ignoreLayerEventsRef.current = true;
+        mapInstanceRef.current.off('layeradd');
+        mapInstanceRef.current.off('layerremove');
         if (userCircleRef.current) {
           mapInstanceRef.current.removeLayer(userCircleRef.current);
           userCircleRef.current = null;
@@ -297,30 +305,40 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         const geoLayer = L.geoJSON(data, {
           filter: (f: Feature) => f.geometry?.type !== "Point"
         });
+        geoLayerRef.current = geoLayer;
 
         const subMissionsGroup = L.featureGroup();
-        /*
-        const preMissionsGroup = L.featureGroup().addTo(map);
-        const otherMissionsGroup = L.featureGroup().addTo(map);
-        */
+        subMissionsGroupRef.current = subMissionsGroup;
 
         addMissionMarkers(map, subMissions, subMissionsGroup, Shape.SQUARE);
-        /*
-        addMissionMarkers(map, preMissions, preMissionsGroup);
-        addMissionMarkers(map, otherMissions, otherMissionsGroup);
-        */
+
+        if (geoLayerVisible) {
+          map.addLayer(geoLayer);
+        }
+        if (subMissionsVisible) {
+          map.addLayer(subMissionsGroup);
+        }
 
         // Create unified layer control
         L.control.layers({}, {
           '💧1932台北舊水路': geoLayer,
           '🐟 水路踏查': subMissionsGroup,
-          /*
-          '🗺️ 寶藏獵人 Pre-Missions': preMissionsGroup,
-          '📍 其他 Others': otherMissionsGroup,
-          */
         }, {
           collapsed: false
         }).addTo(map);
+
+        const handleLayerAdd = (e: L.LayerEvent) => {
+          if (e.layer === geoLayer) setGeoLayerVisible(true);
+          if (e.layer === subMissionsGroup) setSubMissionsVisible(true);
+        };
+
+        const handleLayerRemove = (e: L.LayerEvent) => {
+          if (e.layer === geoLayer) setGeoLayerVisible(false);
+          if (e.layer === subMissionsGroup) setSubMissionsVisible(false);
+        };
+
+        map.on('layeradd', handleLayerAdd);
+        map.on('layerremove', handleLayerRemove);
       })
       .catch(err => console.error('Failed to load GeoJSON', err));
   };

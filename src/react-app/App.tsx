@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { SCENES } from '@/react-app/constants/enum';
 import { Intro, MissionMap, MainMission, SubMission, Final } from '@/react-app/scene';
 import { AppLayout } from '@/react-app/components/AppLayout';
+import { MapProvider } from '@/react-app/MapContext';
 
 /**
  * 城市幽靈：瑠公圳的隱地下生態 (City ghosts from the Underground)
@@ -23,13 +24,15 @@ export const App = () => {
   };
 
   return (
-    <AppLayout>
-      {currentScene.scene === SCENES.INTRO && <Intro onChangeScene={backToMap} />}
-      {currentScene.scene === SCENES.MAP && <MissionMap setScene={setCurrentScene} progress={progress} />}
-      {currentScene.scene === SCENES.MAIN_MISSION && <MainMission setProgress={setProgress} onChangeScene={backToMap} />}
-      {(currentScene.scene === SCENES.SUB_MISSION || currentScene.scene === SCENES.OTHER_MISSION || currentScene.scene === SCENES.TREASURE_HUNT_MISSIONS) && <SubMission storyPath={currentScene.story} onChangeScene={backToMap} />}
-      {currentScene.scene === SCENES.FINALE && <Final onChangeScene={backToMap} />}
-    </AppLayout>
+    <MapProvider>
+      <AppLayout>
+        {currentScene.scene === SCENES.INTRO && <Intro onChangeScene={backToMap} />}
+        {currentScene.scene === SCENES.MAP && <MissionMap setScene={setCurrentScene} progress={progress} />}
+        {currentScene.scene === SCENES.MAIN_MISSION && <MainMission setProgress={setProgress} onChangeScene={backToMap} />}
+        {(currentScene.scene === SCENES.SUB_MISSION || currentScene.scene === SCENES.OTHER_MISSION || currentScene.scene === SCENES.TREASURE_HUNT_MISSIONS) && <SubMission storyPath={currentScene.story} onChangeScene={backToMap} />}
+        {currentScene.scene === SCENES.FINALE && <Final onChangeScene={backToMap} />}
+      </AppLayout>
+    </MapProvider>
   );
 };
 

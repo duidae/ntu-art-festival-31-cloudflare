@@ -443,11 +443,6 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       <button className="flex flex-col items-center gap-1 text-zinc-900 group cursor-pointer" onClick={panToMissionsCenter}>
         <div className="relative p-1 border border-zinc-900 transition-transform group-hover:-translate-y-1" style={{ background: THEME_COLORS.Cream }}>
           <MapPin size={18} />
-          {visitedSiteCount > 0 && (
-            <span style={{ backgroundColor: THEME_COLORS.Green }} className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1 text-[9px] font-black text-white">
-              {visitedSiteCount}
-            </span>
-          )}
         </div>
         <span className="text-[10px] font-bold tracking-tighter">地圖 Map</span>
       </button>
@@ -477,11 +472,22 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   return (
     <div className="h-full bg-[#e8e8e6] relative overflow-hidden flex flex-col">
       <div ref={mapContainerRef} className="flex-1 z-0 grayscale contrast-125" style={{ minHeight: 480 }} />
-      
-      <div className="absolute top-3 left-4 z-[100] flex items-center gap-2">
-        <div style={{ borderColor: THEME_COLORS.Cream }} className="flex flex-row align-center gap-1 bg-zinc-900 text-white p-2 border-2 font-mono text-[10px]">
-          {position ? FormatLatLon(position.lat, position.lon) : geoError || '定位中...'}
-          {geoError && <button className="cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}><CircleQuestionMark size={14}/></button>}
+
+      <div className="absolute top-3 left-4 z-[100]">
+        <div className="relative overflow-hidden rounded border-2 border-zinc-900 bg-white/95 px-3 py-2 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+          <div className="absolute -top-2 left-4 h-2 w-10 rounded-full bg-[#4dff88]" />
+          <div className="flex items-center gap-3">
+            <div style={{ backgroundColor: THEME_COLORS.Green }} className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-black text-zinc-900 shadow-[1px_1px_0px_0px_rgba(24,24,27,0.35)]">
+              {visitedSiteCount}
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-zinc-500">Visited</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-900">
+                {position ? FormatLatLon(position.lat, position.lon) : geoError || '定位中...'}
+                {geoError && <button className="cursor-pointer" onClick={() => setScene({scene: SCENES.SUB_MISSION, story: "/story/geolocation-permission-help.json"})}><CircleQuestionMark size={14}/></button>}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 

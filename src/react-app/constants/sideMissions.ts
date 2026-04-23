@@ -53,7 +53,7 @@ export const EXHIBITIONS = [{
   siteCode: 'yhfsw0',
   story: '/story/exhibition-doom-and-hope.json',
   img: '/art-festival-logo.png',
-  color: THEME_COLORS.DarkGray,
+  color: THEME_COLORS.MediumGray,
 }, {
   title: '《一個大事件》- 殞落',
   coordinates: [25.017403555754996, 121.53932810436642],

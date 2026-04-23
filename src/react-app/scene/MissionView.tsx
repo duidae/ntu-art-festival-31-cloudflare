@@ -95,7 +95,7 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
   };
 
   return (
-    <div>
+    <div className='w-full'>
       <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
         <h1 className="text-9xl font-black">HIST</h1>
       </div>

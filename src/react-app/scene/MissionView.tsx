@@ -41,7 +41,27 @@ const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) =
   }, [images]);
 
   return (
-    <div ref={containerRef} className="glide mb-4 w-full rounded border border-zinc-200 bg-white">
+    <div ref={containerRef} className="glide mb-4 w-full rounded border border-zinc-200 bg-white relative">
+      <div className="absolute left-3 top-1/2 z-10 -translate-y-1/2">
+        <button
+          type="button"
+          className="h-10 w-10 rounded-full bg-zinc-900 text-white hover:bg-zinc-700 cursor-pointer"
+          onClick={() => glideInstanceRef.current?.go('<')}
+          aria-label="上一張"
+        >
+          ‹
+        </button>
+      </div>
+      <div className="absolute right-3 top-1/2 z-10 -translate-y-1/2">
+        <button
+          type="button"
+          className="h-10 w-10 rounded-full bg-zinc-900 text-white hover:bg-zinc-700 cursor-pointer"
+          onClick={() => glideInstanceRef.current?.go('>')}
+          aria-label="下一張"
+        >
+          ›
+        </button>
+      </div>
       <div className="glide__track" data-glide-el="track">
         <ul className="glide__slides">
           {images.map((src, idx) => (

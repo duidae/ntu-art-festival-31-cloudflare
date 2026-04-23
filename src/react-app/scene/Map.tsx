@@ -61,6 +61,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const [cameraActive, setCameraActive] = useState(false);
   const [visitedSites, setVisitedSites] = useState<Record<string, boolean> | null>(null);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   const visitedSiteCount = useMemo(() => {
     if (!visitedSites) return 0;
@@ -420,25 +421,19 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   };
 
   const resetVisitedSites = async () => {
-    setVisitedSites((prev) => {
-      if (!prev) return {};
-      return Object.fromEntries(
-        Object.entries(prev).map(([key, value]) => [
-          key,
-          (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/')) ? false : value,
-        ])
-      );
-    });
+    const nextVisitedSites = Object.fromEntries(
+      Object.entries(visitedSites || {}).map(([key, value]) => [
+        key,
+        (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/')) ? false : value,
+      ])
+    );
+
+    setVisitedSites(nextVisitedSites);
 
     if (user) {
       try {
         await updateUser(user.uid, {
-          visitedSites: Object.fromEntries(
-            Object.entries(visitedSites || {}).map(([key, value]) => [
-              key,
-              (key.startsWith('/treasure-hunt/') || key.startsWith('/exhibitions/')) ? false : value,
-            ])
-          ),
+          visitedSites: nextVisitedSites,
         });
       } catch (err) {
         console.error('Failed to reset visited sites:', err);
@@ -506,7 +501,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
           <div className="flex items-center gap-3">
             <button
               className="rounded cursor-pointer"
-              onClick={resetVisitedSites}
+              onClick={() => setShowResetConfirm(true)}
             >
               <div style={{ backgroundColor: THEME_COLORS.Green }} className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-black text-zinc-900 shadow-[1px_1px_0px_0px_rgba(24,24,27,0.35)]">
                 {visitedSiteCount}
@@ -527,6 +522,37 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
       </div>
 
+      {showResetConfirm && (
+        <div className="fixed inset-0 flex items-center justify-center z-[200] bg-black/25 px-4">
+          <div className="bg-white border-2 border-zinc-900 p-6 rounded shadow-lg max-w-sm w-full">
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-bold">重置訪問紀錄</span>
+              </div>
+            </div>
+            <p className="text-sm text-zinc-700 mb-6">
+              確定要重置已訪問站點紀錄嗎？按確認後將清除所有寶藏踏查與展覽的訪問狀態。
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowResetConfirm(false)}
+                className="px-4 py-2 border border-zinc-900 text-zinc-900 font-mono text-sm font-bold hover:bg-zinc-100 transition-colors rounded cursor-pointer"
+              >
+                取消
+              </button>
+              <button
+                onClick={() => {
+                  resetVisitedSites();
+                  setShowResetConfirm(false);
+                }}
+                className="px-4 py-2 bg-zinc-900 text-white font-mono text-sm font-bold hover:bg-zinc-700 transition-colors rounded cursor-pointer"
+              >
+                確認重置
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {allDone && (
         <div className="absolute inset-0 bg-white/90 z-[2000] flex flex-col items-center justify-center animate-fade-in p-8">
           <div className="relative mb-6">

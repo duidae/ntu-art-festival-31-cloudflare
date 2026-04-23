@@ -6,6 +6,7 @@ import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
 import { SanitizeHref } from '@/react-app/utils';
+import styles from './MissionView.module.css'
 
 type GlideInstance = InstanceType<typeof Glide>;
 import { THEME_COLORS } from '@/react-app/constants';
@@ -64,7 +65,7 @@ const GlideImageSlider = ({ images, alt, caption }: { images: string[]; alt?: st
       <div className="glide__track" data-glide-el="track">
         <ul className="glide__slides">
           {images.map((src, idx) => (
-            <li key={`glide-slide-${idx}`} className="glide__slide flex flex-col items-center justify-center">
+            <li key={`glide-slide-${idx}`} className={`glide__slide ${styles.fix} flex flex-col items-center justify-center`}>
               <img
                 src={SanitizeHref(src)}
                 alt={alt || `slide-${idx + 1}`}

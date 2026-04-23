@@ -1,0 +1,10 @@
+.fix {
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fix :global(.glide__slide img) {
+  max-height: 80px;
+}

@@ -16,7 +16,7 @@ const getYouTubeVideoId = (url: string) => {
   return match ? match[1] : null;
 };
 
-const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) => {
+const GlideImageSlider = ({ images, alt, caption }: { images: string[]; alt?: string; caption: string }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const glideInstanceRef = useRef<GlideInstance | null>(null);
 
@@ -64,12 +64,12 @@ const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) =
       <div className="glide__track" data-glide-el="track">
         <ul className="glide__slides">
           {images.map((src, idx) => (
-            <li key={`glide-slide-${idx}`} className="glide__slide">
+            <li key={`glide-slide-${idx}`} className="glide__slide flex flex-col items-center justify-center">
               <img
                 src={SanitizeHref(src)}
                 alt={alt || `slide-${idx + 1}`}
                 loading="lazy"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-contain"
               />
             </li>
           ))}
@@ -80,6 +80,9 @@ const GlideImageSlider = ({ images, alt }: { images: string[]; alt?: string }) =
           <button key={`glide-bullet-${idx}`} className="glide__bullet" data-glide-dir={`=${idx}`} />
         ))}
       </div>
+      {caption && (
+          <p className="text-center text-sm mt-2 px-4 text-zinc-700">{caption}</p>
+      )}
     </div>
   );
 };
@@ -165,7 +168,7 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
         case 'image-slider':
           return (
             <div key={`section-${index}`}>
-              <GlideImageSlider images={Array.isArray(item.images) ? item.images : []} alt={item.alt} />
+              <GlideImageSlider images={Array.isArray(item.images) ? item.images : []} caption={item.caption} />
               {item.ref && renderRef(item.ref)}
             </div>
           );

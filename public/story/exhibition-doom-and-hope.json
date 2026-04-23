@@ -12,13 +12,15 @@
     "images": [
       "/submission/river-engineering-robot-1.webp",
       "/submission/river-engineering-robot-2.webp"
-    ]
+    ],
+    "caption": "三面光河川工程壓縮棲地"
   }, {
     "type": "image-slider",
     "images": [
       "/submission/invasive-species-1.webp",
       "/submission/invasive-species-2.webp"
-    ]
+    ],
+     "caption": "氾濫的入侵種鳩佔鵲巢"
   }, {
     "type": "paragraph",
     "text": ""

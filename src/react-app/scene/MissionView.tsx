@@ -118,6 +118,13 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
 
     return storyData.contents.map((item: any, index: number) => {
       switch (item.type) {
+        case 'title':
+          return (
+            <div key={`section-${index}`}>
+              <h2 className="text-2xl font-bold mb-4">{item.text}</h2>
+              {item.ref && renderRef(item.ref)}
+            </div>
+          );
         case 'paragraph':
           return (
             <div key={`section-${index}`}>

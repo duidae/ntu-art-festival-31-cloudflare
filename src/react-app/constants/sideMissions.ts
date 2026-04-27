@@ -76,14 +76,14 @@ export const EXHIBITIONS = [{
   img: '/art-festival-logo.png',
   color: THEME_COLORS.Green,
 }, {
-  title: '《地下網絡｜視線之外》- 邊緣顯影/菌落繁生',
+  title: '《地下網絡｜視線之外》',
   coordinates: [25.01819594397589, 121.54023135369350],
   siteCode: 'vhsya9',
   story: '/story/exhibition-underground-network.json',
   img: '/art-festival-logo.png',
   color: THEME_COLORS.Green,
 }, {
-  title: '《地下網絡｜視線之外》- 邊緣顯影/菌落繁生',
+  title: '《地下網絡｜視線之外》',
   coordinates: [25.01819594397589, 121.54023135369350],
   siteCode: 'tgrce5',
   story: '/story/exhibition-underground-network.json',

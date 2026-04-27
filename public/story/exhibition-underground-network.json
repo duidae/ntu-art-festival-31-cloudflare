@@ -1,14 +1,23 @@
 {
   "id": "2",
-  "title": "《地下網絡｜視線之外》- 邊緣顯影",
+  "title": "《地下網絡｜視線之外》- 邊緣顯影/菌落繁生",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "邊緣顯影"
   }, {
     "type": "paragraph",
     "text": "本作品試圖讓觀者重新思考「看見」與「未被看見」之間的關係。透過低對比光線、半透明布幔與不清晰的文字訊息，空間中的資訊被刻意削弱，使觀眾在進入展場時無法立即掌握完整內容。這種模糊與不確定的狀態象徵，就像日常生活中那些未被注意的生命與議題，它們並非不存在，而是長期處於社會的視線邊緣。本作品希望在觀眾尚未理解具體議題之前，先讓身體與感知進入一種「察覺」的狀態，意識到視野之外仍有許多被忽略的存在。"
   }, {
     "type": "paragraph",
     "text": "This work invites viewers to reconsider the dialogue between the \"seen\" and the \"unseen.\"\nBy utilizing low-contrast lighting, translucent drapery, and obscured textual messages, spatial information is intentionally diminished, preventing the audience from immediately grasping the full narrative upon entry. This state of ambiguity and uncertainty serves as a metaphor for the overlooked lives and issues in our daily existence; they are not non-existent, but rather reside perpetually on the periphery of social vision. By utilizing low-contrast lighting, translucent drapery, and obscured textual messages, spatial information is intentionally diminished, preventing the audience from immediately grasping the full narrative upon entry. This state of ambiguity and uncertainty serves as a metaphor for the overlooked lives and issues in our daily existence; they are not non-existent, but rather reside perpetually on the periphery of social vision. Before the audience reaches a cognitive understanding of specific topics, the work seeks to first engage the body and senses in a state of \"heightened awareness\"—fostering a realization that many ignored existences persist just beyond the edges of our immediate gaze."
+  }, {
+    "type": "paragraph",
+    "text": "菌落繁生"
+  }, {
+    "type": "paragraph",
+    "text": "在觀看與理解之後，觀眾也成為展覽的一部分。本作品以交織的菌絲構成一個不斷生長的留言網隧道，邀請觀眾寫下自己的感受或想法，並將留言卡掛於網絡之中。每一張卡片都像是一個節點，逐漸連結成一個由不同情緒與觀點構成的共同結構。這個過程象徵人與人之間、以及人與環境之間看不見的關係，如同地下延伸的菌絲系統，持續傳遞訊息並相互影響。透過參與與書寫，原本抽象的議題轉化為可被看見的集體情緒，使展覽在時間中持續生成新的痕跡。"
+  }, {
+    "type": "paragraph",
+    "text": "After observing and understanding, the audience becomes a part of the exhibition itself. This work constructs an ever-evolving tunnel of messages, woven from interlaced \"mycelium.\" Visitors are invited to transcribe their reflections or emotions onto cards and suspend them within this network. Every card functions as a node, steadily linking into a collective structure shaped by a diverse tapestry of sentiments and perspectives. This process serves as a metaphor for the invisible threads connecting individuals to one another and to the environment—echoing the subterranean mycelial systems that perpetually transmit information and exert mutual influence. Through the acts of participation and writing, abstract issues are transmuted into a visible collective consciousness, enabling the exhibition to manifest new traces as it evolves through time."
   }]
 }

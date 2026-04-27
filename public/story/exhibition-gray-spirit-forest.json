@@ -2,13 +2,13 @@
   "id": "2",
   "title": "《灰帶生靈——犬貓踏過的森林》",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "創作者：李宛蓁 林彥駖 劉彥翔 劉家宏 蕭宇呈 蕭丞賀"
   }, {
     "type": "paragraph",
-    "text": ""
+    "text": "貓狗是人類最親近的夥伴，卻在另一端牽動著野生動物的存續。本作品並非批判物種天性，而是探討人類「善意餵食」背後引發的生態蝴蝶效應。視覺上以「死亡」為核心，將展場轉化為沈重的「墓園」。當觀者步入場域，即象徵成為生態系的一員，直接面對「憐憫之心」與「間接殺戮」之間的情感張力。我們試圖站在受壓迫的野生動物立場發聲，引導觀者重新審視微小舉動在環境中流轉的軌跡，並反思這份善意的最終去向。"
   }, {
     "type": "paragraph",
-    "text": ""
+    "text": "Cats and dogs are men’s best friends. On the other hand, they are closely tied to the survival of wild animals. This work does not wish to criticize the nature of species, but to dive into the ecological butterfly effect induced by every act of “kindly feeding” by humans. “Death” serves as the visual core of the exhibition, transforming the space into a solemn “graveyard”. As viewers walk into the area, they have become a member of the ecological system, directly facing the tension between “compassion” and “indirect killing”. We seek to stand with the oppressed wild animals, speak out for them, and guide viewers to reexamine the influences in the environment of their small acts, and rethink the consequences of their kindness."
   }]
 }

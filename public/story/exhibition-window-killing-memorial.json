@@ -2,8 +2,15 @@
   "id": "2",
   "title": "《臺大窗殺紀念碑》",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "創作者：鄭易帆、張文馨、張祐誠、胡家綺、陽定妤、陳品叡"
+  }, {
+    
+    "type": "paragraph",
+    "text": "作品聚焦鳥類因無法辨識玻璃而發生的窗戶撞擊事件，透過紀念碑與參與式工作坊，將都市中常被忽視的生態悲劇轉化為可見的視覺經驗。雕塑由團隊以及參與工作坊的大小朋友共作之鳥形公仔堆疊而成，數量對應截至2025年位於臺大的鳥類撞擊統計。臺大校園內共放置了九處的窗殺紀念碑，其中鳥型公仔的造型包括了鳩鴿科、麻雀、黑冠麻鷺及斯氏繡眼等常見都市鳥類，也是曾經被記錄到發生窗殺的物種。歡迎掃取旁方QR code，可以看見工作坊參與者名單以及相關窗殺資料。"
+  }, {
+    "type": "paragraph",
+    "text": "The artworks focus on the bird–window collision incidents, which happen because birds can’t distinguish glass or mirrors from the open sky. Through memorials and participatory workshops, the project seeks to transform these urban tragedies, which are often ignored, into a visual experience. The sculpture is built by putting together the bird-shaped figurines made by members of NTU ArtFest and people who participated in the workshop. The number of figurines corresponds to the total recorded window strikes in NTU at each location as of 2025. Nine \"Window Strike Memorials\" have been placed across the NTU campus. The figurines represent common urban species that have been documented in past window collisions, including members of the Columbidae family (pigeons and doves), sparrows, Malayan night herons, and Swinhoe's white-eyes. Please scan the QR code to view the list of workshop participants and access further data regarding window collisions."
   }, {
     "type": "image-slider",
     "images": [
@@ -11,11 +18,5 @@
       "/art-festival-poster.webp",
       "/art-festival-poster.webp"
     ]
-  }, {
-    "type": "paragraph",
-    "text": ""
-  }, {
-    "type": "paragraph",
-    "text": ""
   }]
 }

@@ -70,7 +70,7 @@ export const EXHIBITIONS = [{
   color: THEME_COLORS.Green,
 }, {
   title: '《一個大事件》- 藝術季全貌',
-  coordinates: [25.01819594397589, 121.54023135369349],
+  coordinates: [25.018111903741087, 121.54011226840666],
   siteCode: 'kldpw2',
   story: '/story/exhibition-a-big-event-festival.json',
   img: '/art-festival-logo.png',

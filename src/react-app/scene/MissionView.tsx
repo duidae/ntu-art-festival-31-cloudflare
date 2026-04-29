@@ -136,6 +136,9 @@ export const MissionView = ({ story, onClose }: MissionViewProps) => {
           return (
             <div key={`section-${index}`}>
               <img key={`image-${index}`} src={SanitizeHref(item.url)} loading="lazy" className="mb-1 w-full h-auto" />
+              {item.caption && (
+                <p className="text-center text-sm mb-4 px-4 text-zinc-700">{item.caption}</p>
+              )}
               {item.ref && renderRef(item.ref)}
             </div>
           );

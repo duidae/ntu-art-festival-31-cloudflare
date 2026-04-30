@@ -27,32 +27,32 @@ export const TREASURE_HUNT_MISSIONS = [{
 }, {
   title: '市集挖寶1',
   siteCode: 'qlptz4',
-  coordinates: [25.017509965377283, 121.5401273527918],
+  coordinates: [25.017510, 121.540075],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: '市集挖寶2',
   siteCode: 'hsnrw8',
-  coordinates: [25.01752074649872, 121.54001776842233],
+  coordinates: [25.017513, 121.540017],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: '市集挖寶3',
   siteCode: 'bdkya2',
-  coordinates: [25.01752688382965, 121.53989897244777],
+  coordinates: [25.017517, 121.539934],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: '市集挖寶4',
   siteCode: 'vxmce9',
-  coordinates: [25.017531567841523, 121.53976994112033],
+  coordinates: [25.017521, 121.539859],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: '市集挖寶5',
   siteCode: 'uvkde6',
-  coordinates: [25.017531567841523, 121.53976994112033],
+  coordinates: [25.017523, 121.539783],
   story: '/story/treasure-hunt-mission-3.json',
 }, {
   title: '市集挖寶6',
   siteCode: 'asrtn1',
-  coordinates: [25.017531567841523, 121.53976994112033],
+  coordinates: [25.017526, 121.539706],
   story: '/story/treasure-hunt-mission-3.json',
 }];
 export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => m.siteCode);

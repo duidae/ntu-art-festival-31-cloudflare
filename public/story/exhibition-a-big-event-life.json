@@ -2,13 +2,10 @@
   "id": "2",
   "title": "《一個大事件》- 生命的定格",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "標本兼具藝術性與科學研究價值。標本師在生命逝去後，透過程序將其還原至生前狀態，此形式稱為「立姿標本」。本空間展示立姿標本，以及臺大藝術季「永凝飛羽」標本製作工作坊之成果。"
   }, {
     "type": "paragraph",
-    "text": ""
-  }, {
-    "type": "paragraph",
-    "text": ""
+    "text": "Taxidermy serves as both an art form and a vital tool for scientific research. After the loss of life, taxidermists restore specimens to their living appearance through a meticulous process, a form known as 'life-size mounts.' This space showcases life-size mounts alongside the results from the NTU Art Festival's workshop, Eternal Inhabitant of the Sky."
   }]
 }

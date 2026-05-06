@@ -2,13 +2,10 @@
   "id": "2",
   "title": "《人類世錯位的生物衝突》",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "以時裝藝術作為敘述媒介，具象化人類與生物衝突的概念，打造一個跨領域結合的沉浸式展演，設置靜態與動態兩種形式，藉由雙重視角演繹兩者間的碰撞。"
   }, {
     "type": "paragraph",
-    "text": ""
-  }, {
-    "type": "paragraph",
-    "text": ""
+    "text": "Utilizing fashion art as a narrative medium, this project materializes the concept of conflict between humans and nature. It creates an interdisciplinary, immersive performance featuring both static and dynamic installations, interpreting the collision of the two through a dual-perspective lens."
   }]
 }

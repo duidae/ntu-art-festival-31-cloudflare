@@ -2,13 +2,10 @@
   "id": "2",
   "title": "《一個大事件》- 殞落",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+    "type": "paragraph",
+    "text": "本作品藉由尺度的縮放，重新建構野生動物遺體與分解者間的比例關係。展場中央的巨大奇美拉，是本屆藝術季所有生態議題的複合體，代表因人類活動而死亡的生物個體。設想這是一個真實事件，當不同人面對這具隕落的軀體，會有不同的反應與行動。而分解者們發掘、紀錄與剖析，將死亡轉化為可被檢視的資料。"
   }, {
     "type": "paragraph",
-    "text": ""
-  }, {
-    "type": "paragraph",
-    "text": ""
+    "text": "This work reconstructs the proportional relationship between wildlife remains and decomposers through the manipulation of scale. The colossal Chimera at the center of the exhibition serves as a composite of the festival's various ecological themes, representing biological individuals that have perished due to human activity. Imagine this as a real-world event: when different people encounter this fallen carcass, their reactions and actions vary. Meanwhile, the \"decomposers\" engage in excavation, documentation, and analysis—translating death into examinable data."
   }]
 }

@@ -2,13 +2,13 @@
   "id": "2",
   "title": "《傷痕與新生》",
   "contents": [{
-    "type": "image",
-    "url": "/art-festival-poster.webp"
+
+    "text": "創作者：陳立于、林書帆、葉家米、周敏歆、黃品恩、游閔絜"
   }, {
     "type": "paragraph",
-    "text": ""
+    "text": "臺大藝術季取用臺灣動物路死觀察網的資料，以穿山甲的樣貌，試圖將路殺的現實帶至你我的面前，並在這片黑暗、終將歸於虛無之處留下顏色與花朵。"
   }, {
     "type": "paragraph",
-    "text": ""
+    "text": "Utilizing data from the Taiwan Roadkill Observation Network, the NTU Arts Festival evokes the image of the pangolin to bring the reality of roadkill before your eyes. In this dark space that will eventually fade into nothingness, we seek to leave behind colors and blossoms."
   }]
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLoaderData, useLocation } from 'react-router-dom';
+import { useNavigate, useLoaderData, useLocation, useSearchParams } from 'react-router-dom';
 import { useAuth } from "@/react-app/AuthContext";
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 import { EXHIBITIONS } from '@/react-app/constants/sideMissions';
@@ -14,16 +14,18 @@ interface ExhibitionLoaderData {
 export const Exhibition = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const noLogin = searchParams.get('noLogin') === 'true';
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as ExhibitionLoaderData;
   const mission = EXHIBITIONS.find(m => m.siteCode === siteCode);
   const [story, setStory] = useState<any>(null);
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!isLoading && !user && !noLogin) {
       navigate("/login", { state: { from: location.pathname } });
     }
-  }, [user, isLoading, navigate, location.pathname]);
+  }, [user, isLoading, noLogin, navigate, location.pathname]);
 
   useEffect(() => {
     if (!isLoading && user && siteCode) {

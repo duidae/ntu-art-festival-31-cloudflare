@@ -39,10 +39,18 @@ export const Login = () => {
       <button
         onClick={login}
         disabled={isLoading}
-        className="flex flex-row items-center gap-2 px-8 py-3 bg-zinc-900 text-white font-mono text-sm font-bold hover:bg-zinc-700 transition-colors border border-zinc-900 cursor-pointer rounded disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-60 flex flex-row items-center gap-2 px-8 py-3 bg-zinc-900 text-white font-mono text-sm font-bold hover:bg-zinc-700 transition-colors border border-zinc-900 cursor-pointer rounded disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <img src="/google-logo.png" className="ml-2 w-5 h-5 bg-transparent" />
         {isLoading ? '登入中...' : '使用 Google 登入'}
+      </button>
+      <button
+        onClick={() => {
+          navigate(`${state?.from}?noLogin=true` || MAP_ROUTE_PATH);
+        }}
+        className="w-60 mt-4 px-8 py-3 bg-zinc-900 text-white font-mono text-sm font-bold hover:bg-zinc-500 transition-colors border border-zinc-400 cursor-pointer rounded"
+      >
+        略過登入
       </button>
     </div>
   );

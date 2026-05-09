@@ -46,7 +46,7 @@ export const Login = () => {
       </button>
       <button
         onClick={() => {
-          navigate(`${state?.from}?noLogin=true` || MAP_ROUTE_PATH);
+          navigate(`${state?.from}?skipLogin=true` || MAP_ROUTE_PATH);
         }}
         className="w-60 mt-4 px-8 py-3 bg-zinc-900 text-white font-mono text-sm font-bold hover:bg-zinc-500 transition-colors border border-zinc-400 cursor-pointer rounded"
       >

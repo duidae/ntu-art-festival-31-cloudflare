@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLoaderData, useLocation } from 'react-router-dom';
+import { useNavigate, useLoaderData, useLocation, useSearchParams } from 'react-router-dom';
 import { useAuth } from "@/react-app/AuthContext";
 import { MAP_ROUTE_PATH } from '@/react-app/constants';
 import { TREASURE_HUNT_MISSIONS } from '@/react-app/constants/sideMissions';
@@ -14,16 +14,18 @@ interface TreasureHuntLoaderData {
 export const TreasureHunt = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as TreasureHuntLoaderData;
+  const skipLogin = searchParams.get('skipLogin') === 'true' || import.meta.env.VITE_SKIP_LOGIN === 'true';
   const mission = TREASURE_HUNT_MISSIONS.find(m => m.siteCode === siteCode);
   const [story, setStory] = useState<any>(null);
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!isLoading && !user && !skipLogin) {
       navigate("/login", { state: { from: location.pathname } });
     }
-  }, [user, isLoading, navigate, location.pathname]);
+  }, [user, isLoading, skipLogin, navigate, location.pathname]);
 
   useEffect(() => {
     if (!isLoading && user && siteCode) {

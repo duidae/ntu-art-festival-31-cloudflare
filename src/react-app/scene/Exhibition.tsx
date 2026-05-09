@@ -15,17 +15,17 @@ export const Exhibition = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
-  const noLogin = searchParams.get('noLogin') === 'true';
+  const skipLogin = searchParams.get('skipLogin') === 'true' || import.meta.env.VITE_SKIP_LOGIN === 'true';
   const { user, isLoading } = useAuth();
   const { siteCode } = useLoaderData() as ExhibitionLoaderData;
   const mission = EXHIBITIONS.find(m => m.siteCode === siteCode);
   const [story, setStory] = useState<any>(null);
 
   useEffect(() => {
-    if (!isLoading && !user && !noLogin) {
+    if (!isLoading && !user && !skipLogin) {
       navigate("/login", { state: { from: location.pathname } });
     }
-  }, [user, isLoading, noLogin, navigate, location.pathname]);
+  }, [user, isLoading, skipLogin, navigate, location.pathname]);
 
   useEffect(() => {
     if (!isLoading && user && siteCode) {

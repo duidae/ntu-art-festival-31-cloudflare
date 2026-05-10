@@ -13,11 +13,11 @@ import {
   ART_FESTIVAL_TREASURE_HUNTER_END_DATE,
   ART_FESTIVAL_START_DATE,
   ART_FESTIVAL_END_DATE,
+  ART_FESTIVAL_LOGO_SVG,
+  THEME_COLOR_VALUES,
   */
   ART_FESTIVAL_LOGO,
-  ART_FESTIVAL_LOGO_SVG,
   THEME_COLORS,
-  THEME_COLOR_VALUES,
   DEFAULT_COLOR,
   MAP_ZOOM,
 } from '@/react-app/constants';
@@ -129,7 +129,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
 
   // const todayYYYYMMDD = FormatDateYYYYMMDD(new Date());
   // const isTreasureHuntOutdated = ;//todayYYYYMMDD > ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
-  const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
+  // const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
   const isArtFestivalActive = import.meta.env.VITE_ART_FESTIVAL_ENABLED === "true";// todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
   
   /*

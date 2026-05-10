@@ -355,7 +355,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       })
     }).addTo(map);
     userMarkerRef.current = marker;
-    addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
+    // addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
     addMissionMarkers(map, otherMissions);
     // addMissionMarkers(map, mainMissions);
     // addMissionMarkers(map, subMissions);

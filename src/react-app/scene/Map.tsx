@@ -158,6 +158,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   });
 
   // TODO: Remove missions after art festival
+  /*
   const preMissions = MISSIONS.Pre?.map((m, index) => {
     const color = THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length];
     return {
@@ -179,6 +180,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       color: color
     };
   }) ?? [];
+  */
 
   const otherMissions = MISSIONS.Others?.map(m => {
     return {

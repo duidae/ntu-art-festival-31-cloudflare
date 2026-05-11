@@ -13,9 +13,9 @@ import {
   ART_FESTIVAL_TREASURE_HUNTER_END_DATE,
   ART_FESTIVAL_START_DATE,
   ART_FESTIVAL_END_DATE,
+  */
   ART_FESTIVAL_LOGO_SVG,
   THEME_COLOR_VALUES,
-  */
   ART_FESTIVAL_LOGO,
   THEME_COLORS,
   DEFAULT_COLOR,
@@ -129,7 +129,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
 
   // const todayYYYYMMDD = FormatDateYYYYMMDD(new Date());
   // const isTreasureHuntOutdated = ;//todayYYYYMMDD > ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
-  // const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
+  const isTreasureHuntActive = import.meta.env.VITE_ART_FESTIVAL_TREASURE_HUNTER_ENABLED === "true";//todayYYYYMMDD >= ART_FESTIVAL_TREASURE_HUNTER_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_TREASURE_HUNTER_END_DATE;
   const isArtFestivalActive = import.meta.env.VITE_ART_FESTIVAL_ENABLED === "true";// todayYYYYMMDD >= ART_FESTIVAL_START_DATE && todayYYYYMMDD <= ART_FESTIVAL_END_DATE;
   
   /*
@@ -158,7 +158,6 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
   });
 
   // TODO: Remove missions after art festival
-  /*
   const preMissions = MISSIONS.Pre?.map((m, index) => {
     const color = THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length];
     return {
@@ -180,7 +179,6 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       color: color
     };
   }) ?? [];
-  */
 
   const otherMissions = MISSIONS.Others?.map(m => {
     return {
@@ -357,7 +355,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       })
     }).addTo(map);
     userMarkerRef.current = marker;
-    // addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
+    addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
     addMissionMarkers(map, otherMissions);
     // addMissionMarkers(map, mainMissions);
     // addMissionMarkers(map, subMissions);

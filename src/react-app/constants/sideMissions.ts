@@ -24,6 +24,7 @@ export const TREASURE_HUNT_MISSIONS = [{
   siteCode: 'gthui5',
   coordinates: [25.0163250, 121.5400810],
   story: '/story/treasure-hunt-mission-3.json',
+/*
 }, {
   title: '市集挖寶1',
   siteCode: 'qlptz4',
@@ -54,6 +55,7 @@ export const TREASURE_HUNT_MISSIONS = [{
   siteCode: 'asrtn1',
   coordinates: [25.017526, 121.539706],
   story: '/story/treasure-hunt-market-6.json',
+*/
 }];
 export const ART_FESTIVAL_TREASURE_HUNT_PATHS = TREASURE_HUNT_MISSIONS.map(m => m.siteCode);
 

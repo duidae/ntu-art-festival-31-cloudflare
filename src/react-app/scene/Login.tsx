@@ -32,7 +32,7 @@ export const Login = () => {
 
   const loginJSX = (
     <div className="flex flex-col items-center justify-center p-6 h-full">
-      <h1 className="text-3xl font-bold mb-6">登入</h1>
+      <h1 className="text-3xl font-bold mb-6">登入(集點)</h1>
       <p className="text-center mb-8 text-gray-600">
         使用您的 Google 帳號登入進行體驗
       </p>

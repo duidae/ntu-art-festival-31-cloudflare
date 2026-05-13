@@ -474,7 +474,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
         </div>
         <span className="text-[10px] font-bold tracking-tighter">定位 Locate</span>
       </button>
-      {isArtFestivalActive &&
+      {false && isArtFestivalActive &&
         <button id="camera" className="flex flex-col items-center gap-1 text-zinc-900 group relative cursor-pointer" onClick={() => { !cameraActive && activateCamera(); }}>
           <div className="p-1 border border-zinc-900 bg-zinc-900 text-white transition-transform group-hover:scale-110">
             <Scan size={18} />

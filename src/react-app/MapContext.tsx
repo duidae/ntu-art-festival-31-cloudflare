@@ -12,12 +12,12 @@ const MapContext = createContext<MapContextType | undefined>(undefined);
 export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [geoLayerVisible, setGeoLayerVisibleState] = useState<boolean>(() => {
     const saved = localStorage.getItem('geoLayerVisible');
-    return saved !== null ? JSON.parse(saved) : false;
+    return saved !== null ? JSON.parse(saved) : true;
   });
 
   const [subMissionsVisible, setSubMissionsVisibleState] = useState<boolean>(() => {
     const saved = localStorage.getItem('subMissionsVisible');
-    return saved !== null ? JSON.parse(saved) : false;
+    return saved !== null ? JSON.parse(saved) : true;
   });
 
   const setGeoLayerVisible = (visible: boolean) => {

@@ -157,29 +157,6 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
     };
   });
 
-  // TODO: Remove missions after art festival
-  const preMissions = MISSIONS.Pre?.map((m, index) => {
-    const color = THEME_COLOR_VALUES[index % THEME_COLOR_VALUES.length];
-    return {
-      id: SCENES.TREASURE_HUNT_MISSIONS,
-      isActive: isTreasureHuntActive,
-      pos: m.coordinates as L.LatLngExpression,
-      title: m.title,
-      img: `
-        <div style="
-          width:90%;
-          height:90%;
-          background:${color};
-          -webkit-mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
-          mask: url(${ART_FESTIVAL_LOGO_SVG}) center / contain no-repeat;
-        "></div>
-      `,
-      story: m.story || "",
-      done: visitedSites?.[`/treasure-hunt/${m.siteCode}`] === true,
-      color: color
-    };
-  }) ?? [];
-
   const otherMissions = MISSIONS.Others?.map(m => {
     return {
       id: SCENES.OTHER_MISSION,
@@ -355,10 +332,7 @@ export const MissionMap = ({ setScene, progress }: MapProps) => {
       })
     }).addTo(map);
     userMarkerRef.current = marker;
-    addMissionMarkers(map, preMissions, undefined, Shape.CIRCLE);
     addMissionMarkers(map, otherMissions);
-    // addMissionMarkers(map, mainMissions);
-    // addMissionMarkers(map, subMissions);
   };
 
   const addMissionMarkers = (
